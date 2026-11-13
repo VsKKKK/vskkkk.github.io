@@ -1,0 +1,82 @@
+---
+const onAbout = Astro.url.pathname === '/about/';
+---
+<nav class="site-dock floating-glass" aria-label="主导航">
+  <a class:list={[{ 'is-active': !onAbout }]} href="/" data-home-link aria-current={!onAbout ? 'location' : undefined}>作品</a>
+  <a class:list={[{ 'is-active': onAbout }]} href="/about/" aria-current={onAbout ? 'page' : undefined}>关于我</a>
+  <button type="button" data-contact-trigger aria-haspopup="dialog" aria-controls="contact-modal">联系</button>
+</nav>
+
+<script>
+  const dock = document.querySelector<HTMLElement>('.site-dock');
+  const scroll = document.querySelector<HTMLElement>('.site-scroll');
+  const contact = document.querySelector<HTMLDialogElement>('#contact-modal');
+  const footer = scroll?.querySelector<HTMLElement>('.site-footer');
+
+  if (dock && scroll) {
+    // Measure from the last turning point so small scroll reversals do not toggle the dock.
+    let pivot = Math.max(0, scroll.scrollTop);
+
+    function reveal() {
+      dock.removeAttribute('data-scroll-hidden');
+      pivot = Math.max(0, scroll.scrollTop);
+    }
+
+    function updateDock() {
+      const y = Math.max(0, scroll.scrollTop);
+
+      // Use the current geometry during a scroll frame, before the observer callback.
+      const inFooter = !!footer && footer.getBoundingClientRect().top < scroll.getBoundingClientRect().bottom;
+      dock.toggleAttribute('data-in-footer', inFooter);
+
+      if (inFooter || y <= 18 || contact?.open || dock.querySelector(':focus-visible')) {
+        reveal();
+      } else if (dock.hasAttribute('data-scroll-hidden')) {
+        pivot = Math.max(pivot, y);
+        if (pivot - y >= 22) reveal();
+      } else {
+        pivot = Math.min(pivot, y);
+        if (y - pivot >= 48) {
+          dock.setAttribute('data-scroll-hidden', '');
+          pivot = y;
+        }
+      }
+    }
+
+    scroll.addEventListener('scroll', updateDock, { passive: true });
+    if (footer) new IntersectionObserver(updateDock, { root: scroll }).observe(footer);
+
+    dock.querySelector('[data-home-link]')?.addEventListener('click', (event) => {
+      if (!(event instanceof MouseEvent) || event.button !== 0 || event.metaKey ||
+          event.ctrlKey || event.shiftKey || event.altKey || location.pathname !== '/') return;
+
+      event.preventDefault();
+      if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+      scroll.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    });
+
+    dock.addEventListener('focusin', (event) => {
+      if (event.target instanceof Element && event.target.matches(':focus-visible')) reveal();
+    });
+    window.addEventListener('hashchange', reveal);
+    window.addEventListener('pageshow', () => {
+      reveal();
+      updateDock();
+
+      // History traversal can restore the URL fragment without restoring this scroll container.
+      if (location.pathname === '/' && location.hash === '#works') {
+        requestAnimationFrame(() => {
+          if (scroll.scrollTop !== 0 || location.hash !== '#works') return;
+          document.getElementById('works')?.scrollIntoView({ block: 'start', behavior: 'instant' });
+          reveal();
+        });
+      }
+    });
+
+    if (contact) {
+      new MutationObserver(() => {
+        if (contact.open) reveal();
+      }).observe(contact, { attributes: true, attributeFilter: ['open'] });
+    }
+  }
+</script>

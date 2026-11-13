@@ -1,0 +1,123 @@
+.home-hero { padding-block: clamp(90px, 8.4vw, 122px) clamp(80px, 7vw, 102px); }
+.home-hero h1 {
+  font-size: var(--title-size);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.065em;
+}
+.home-hero p {
+  margin-top: 24px;
+  max-width: 40rem;
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.72;
+}
+.home-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.home-works { scroll-margin-top: 24px; padding-block: 30px 26px; border-block: 1px solid var(--line); }
+.home-section h2 { font-size: var(--heading-size); font-weight: 500; letter-spacing: -.05em; }
+
+.home-works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.home-works-grid .project-card a:hover img { scale: none; }
+
+.home-section { padding-top: var(--section-space); }
+.home-section h2 { margin-bottom: 34px; }
+.home-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(32px, 8vw, 116px);
+  row-gap: 44px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.home-skills-grid li { display: grid; grid-template-columns: 76px 1fr; gap: 26px; }
+.home-skills-grid li > span { font-size: 28px; line-height: 1; }
+.home-skills-grid h3 { font-size: 20px; font-weight: 600; letter-spacing: -.025em; margin: 0 0 10px; }
+.home-skills-grid p, .home-tool p { color: var(--text-secondary); line-height: 1.65; }
+.home-tools-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.home-tool { min-width: 0; padding: 12px 12px 20px; border-radius: 12px; background: #fbfbfb; border: 1px solid #e8e8e8; }
+.home-tool-mark {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 2.25;
+  margin: 0 0 16px;
+  border-radius: 8px;
+  background: #ededed;
+  color: #4e4e4e;
+  font-size: clamp(29px, 3.1vw, 47px);
+  font-weight: 550;
+  letter-spacing: -.055em;
+}
+.home-tool:nth-child(2) .home-tool-mark { background: #e9edf7; color: var(--accent); }
+.home-tool p { margin-inline: 4px; }
+.home-tool p { font-size: 14px; }
+.home-notes { padding-bottom: clamp(100px, 15vw, 190px); }
+.home-notes ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.home-notes li {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  min-height: 86px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.home-notes li > span { color: var(--text-secondary); font-size: 14px; font-variant-numeric: tabular-nums; }
+.home-notes p { font-size: 19px; }
+
+.home-tool-mark { font-weight: 500; }
+@media (max-width: 640px) {
+  .home-hero { padding-block: 40px 38px; }
+  .home-hero p { margin-top: 18px; font-size: 16px; }
+  .home-hero-actions { margin-top: 22px; }
+  .home-works { padding-top: 18px; }
+  .home-works-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .home-skills-grid { gap: 26px 16px; }
+  .home-skills-grid li { grid-template-columns: 1fr; gap: 10px; }
+  .home-skills-grid h3 { font-size: 17px; }
+  .home-skills-grid p { font-size: 14px; }
+  .home-tools-grid { grid-template-columns: 1fr; }
+  .home-tool-mark { aspect-ratio: 3.2; }
+  .home-notes li { grid-template-columns: 36px 1fr; min-height: 72px; }
+  .home-notes p { font-size: 16px; }
+}
+
+.home-back-top {
+  --back-top-size: 44px;
+  position: fixed;
+  z-index: 10;
+  right: var(--back-top-inset, max(var(--gutter), (100% - var(--shell-width)) / 2));
+  bottom: calc(var(--dock-offset) + (var(--dock-height) - var(--back-top-size)) / 2);
+  display: grid;
+  place-items: center;
+  width: var(--back-top-size);
+  height: var(--back-top-size);
+  padding: 0;
+  border-radius: 50%;
+  color: var(--text);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: transform .22s ease, opacity .2s ease, visibility 0s linear .22s;
+}
+.home-back-top[data-visible] {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-back-top { transition: none; }
+}
+@media (hover: hover) {
+  .home-back-top:hover { background: rgb(255 255 255 / 78%); }
+}
+.home-back-top:active { background: rgb(255 255 255 / 86%); }
+@media (max-width: 374px) {
+  .home-back-top { bottom: var(--dock-clearance); }
+}

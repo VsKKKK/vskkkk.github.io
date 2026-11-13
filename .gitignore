@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.npm-cache/
+
+/_asset-staging/
+.env
+.env.*
+.envrc
+.dev.vars
+.dev.vars.*
+.npmrc
+*.pem
+*.key
+*.pfx
+*.p12

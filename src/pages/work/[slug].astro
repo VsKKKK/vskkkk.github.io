@@ -1,0 +1,67 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import ProjectGallery from '../../components/ProjectGallery.astro';
+import projects from '../../data/projects.json';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+---
+<SiteLayout title={project.title} description={project.description}>
+  <article class="site-shell detail-page">
+    <a class="button-pill detail-back" href="/" data-detail-back>返回</a>
+    <header class="detail-heading">
+      <h1>{project.title}</h1>
+      <p class="detail-description">{project.description}</p>
+      <p class="detail-meta">{[project.year, project.type, project.platform].filter(Boolean).join(" · ")}</p>
+      <ul class="detail-tags" aria-label="项目主题" role="list">{project.tags.map((tag) => <li>{tag}</li>)}</ul>
+    </header>
+    <ProjectGallery images={project.images} />
+    <div class="detail-end">
+      <a class="button-pill" href="/" data-detail-back>返回</a>
+      <a class="button-pill" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
+    </div>
+  </article>
+</SiteLayout>
+
+<script>
+  // The Navigation API exposes the contiguous same-origin portion of browser history.
+  const browserNavigation = (window as Window & {
+    navigation?: {
+      currentEntry: { index: number } | null;
+      entries(): { index: number; url: string | null }[];
+    };
+  }).navigation;
+
+  document.querySelectorAll<HTMLAnchorElement>('[data-detail-back]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      if (browserNavigation) {
+        const current = browserNavigation.currentEntry;
+        if (!current) return;
+
+        const previous = browserNavigation.entries().findLast((entry) =>
+          entry.index < current.index && entry.url && new URL(entry.url).pathname !== location.pathname
+        );
+
+        if (previous) {
+          event.preventDefault();
+          history.go(previous.index - current.index);
+        }
+        return;
+      }
+
+      // A referrer identifies the prior document when history entries are unavailable.
+      if (history.length > 1 && document.referrer) {
+        const previous = new URL(document.referrer);
+        if (previous.origin === location.origin && previous.pathname !== location.pathname) {
+          event.preventDefault();
+          location.assign(previous.href);
+        }
+      }
+    });
+  });
+</script>

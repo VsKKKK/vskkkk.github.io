@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+---
+<footer class="site-footer">
+  <div class="site-shell site-footer-grid">
+    <p class="site-footer-brand">{site.name}</p>
+    <div>
+      <h2>Contact</h2>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+    <div>
+      <h2>Pages</h2>
+      <nav aria-label="页脚导航">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+      </nav>
+    </div>
+  </div>
+</footer>

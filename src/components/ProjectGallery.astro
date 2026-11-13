@@ -1,0 +1,85 @@
+---
+interface Board {
+  title: string;
+  src: string;
+  full: string;
+  width: number;
+  height: number;
+}
+interface Props { images: Board[] }
+const { images } = Astro.props;
+---
+<ol class="project-gallery" aria-label="项目画板" role="list" data-gallery>
+  {images.map((image, index) => (
+    <li>
+      <a href={image.full} data-board data-title={image.title} aria-label={`放大查看 ${image.title}`}>
+        <img src={image.src} width={image.width} height={image.height} alt={image.title}
+          loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+      </a>
+    </li>
+  ))}
+</ol>
+<dialog class="board-viewer" id="board-viewer" aria-labelledby="board-title">
+  <header class="board-toolbar">
+    <h2 id="board-title"></h2>
+    <div class="board-controls">
+      <button class="button-pill" type="button" data-board-prev aria-label="上一张">←</button>
+      <button class="button-pill" type="button" data-board-next aria-label="下一张">→</button>
+      <a class="button-pill" data-board-full target="_blank" rel="noopener">原图 <span aria-hidden="true">↗</span></a>
+      <form method="dialog"><button class="button-pill" type="submit" aria-label="关闭画板" autofocus>×</button></form>
+    </div>
+  </header>
+  <div class="board-scroll"><img alt="" data-board-image /></div>
+</dialog>
+
+<script>
+  const gallery = document.querySelector<HTMLElement>('[data-gallery]');
+  const viewer = document.querySelector<HTMLDialogElement>('#board-viewer');
+  const image = viewer?.querySelector<HTMLImageElement>('[data-board-image]');
+  const title = viewer?.querySelector<HTMLElement>('#board-title');
+  const scroll = viewer?.querySelector<HTMLElement>('.board-scroll');
+  const previous = viewer?.querySelector<HTMLButtonElement>('[data-board-prev]');
+  const next = viewer?.querySelector<HTMLButtonElement>('[data-board-next]');
+  const full = viewer?.querySelector<HTMLAnchorElement>('[data-board-full]');
+
+  if (gallery && viewer && image && title && scroll && previous && next && full) {
+    const boards = [...gallery.querySelectorAll<HTMLAnchorElement>('[data-board]')];
+    let current = 0;
+    let opener: HTMLAnchorElement | undefined;
+
+    function showBoard(index: number) {
+      const board = boards[index];
+      if (!board) return;
+      current = index;
+      const label = board.dataset.title ?? '';
+      title.textContent = `${index + 1} / ${boards.length} · ${label}`;
+      image.alt = label;
+      image.src = board.href;
+      full.href = board.href;
+      previous.disabled = index === 0;
+      next.disabled = index === boards.length - 1;
+      scroll.scrollTop = 0;
+    }
+
+    boards.forEach((board, index) => {
+      board.addEventListener('click', (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        opener = board;
+        showBoard(index);
+        viewer.showModal();
+      });
+    });
+    previous.addEventListener('click', () => showBoard(current - 1));
+    next.addEventListener('click', () => showBoard(current + 1));
+    viewer.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      showBoard(current + (event.key === 'ArrowLeft' ? -1 : 1));
+    });
+    viewer.addEventListener('close', () => {
+      image.removeAttribute('src');
+      opener?.focus({ preventScroll: true });
+    });
+  }
+</script>

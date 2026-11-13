@@ -1,0 +1,413 @@
+[
+  {
+    "slug": "marketgrid-cas",
+    "title": "MarketGrid CAS",
+    "subtitle": "内容运营管理系统",
+    "cover": "/projects/marketgrid-cas/cover-1440.webp",
+    "images": [
+      {
+        "title": "封面｜内容运营管理系统",
+        "src": "/projects/marketgrid-cas/boards/01-cover-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/01-cover.webp",
+        "width": 1440,
+        "height": 810
+      },
+      {
+        "title": "项目介绍与项目背景",
+        "src": "/projects/marketgrid-cas/boards/02-project-introduction-and-context-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/02-project-introduction-and-context.webp",
+        "width": 1440,
+        "height": 2815
+      },
+      {
+        "title": "CAS 系统架构设计",
+        "src": "/projects/marketgrid-cas/boards/03-system-architecture-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/03-system-architecture.webp",
+        "width": 1440,
+        "height": 1617
+      },
+      {
+        "title": "设计方向",
+        "src": "/projects/marketgrid-cas/boards/04-design-direction-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/04-design-direction.webp",
+        "width": 1440,
+        "height": 1626
+      },
+      {
+        "title": "Part 01｜系统基础建设",
+        "src": "/projects/marketgrid-cas/boards/05-part-01-system-foundation-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/05-part-01-system-foundation.webp",
+        "width": 1440,
+        "height": 285
+      },
+      {
+        "title": "界面框架",
+        "src": "/projects/marketgrid-cas/boards/06-interface-framework-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/06-interface-framework.webp",
+        "width": 1440,
+        "height": 874
+      },
+      {
+        "title": "信息层级",
+        "src": "/projects/marketgrid-cas/boards/07-information-hierarchy-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/07-information-hierarchy.webp",
+        "width": 1440,
+        "height": 1156
+      },
+      {
+        "title": "页面模板",
+        "src": "/projects/marketgrid-cas/boards/08-page-patterns-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/08-page-patterns.webp",
+        "width": 1440,
+        "height": 706
+      },
+      {
+        "title": "组件与状态规范",
+        "src": "/projects/marketgrid-cas/boards/09-components-and-status-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/09-components-and-status.webp",
+        "width": 1440,
+        "height": 910
+      },
+      {
+        "title": "Part 02｜核心运营体验设计",
+        "src": "/projects/marketgrid-cas/boards/10-part-02-core-operation-experience-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/10-part-02-core-operation-experience.webp",
+        "width": 1440,
+        "height": 285
+      },
+      {
+        "title": "运营工作台",
+        "src": "/projects/marketgrid-cas/boards/11-operation-workbench-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/11-operation-workbench.webp",
+        "width": 1440,
+        "height": 874
+      },
+      {
+        "title": "推荐区域管理",
+        "src": "/projects/marketgrid-cas/boards/12-recommendation-areas-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/12-recommendation-areas.webp",
+        "width": 1440,
+        "height": 614
+      },
+      {
+        "title": "推荐组合配置",
+        "src": "/projects/marketgrid-cas/boards/13-recommendation-composition-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/13-recommendation-composition.webp",
+        "width": 1440,
+        "height": 874
+      },
+      {
+        "title": "通知排期管理",
+        "src": "/projects/marketgrid-cas/boards/14-notification-scheduling-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/14-notification-scheduling.webp",
+        "width": 1440,
+        "height": 874
+      },
+      {
+        "title": "通知内容与展示配置",
+        "src": "/projects/marketgrid-cas/boards/15-notification-configuration-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/15-notification-configuration.webp",
+        "width": 1440,
+        "height": 936
+      },
+      {
+        "title": "页面总览",
+        "src": "/projects/marketgrid-cas/boards/16-page-overview-1440.webp",
+        "full": "/projects/marketgrid-cas/boards/16-page-overview.webp",
+        "width": 1440,
+        "height": 810
+      }
+    ],
+    "coverSmall": "/projects/marketgrid-cas/cover-800.webp",
+    "type": "企业后台 · UX/UI 设计",
+    "description": "MarketGrid CAS 内容运营管理系统，覆盖运营工作台、推荐区域与组合配置，以及通知排期和展示配置。",
+    "year": 2026,
+    "platform": "Desktop Web",
+    "tags": [
+      "B端产品",
+      "Web 后台",
+      "内容运营设计"
+    ]
+  },
+  {
+    "slug": "restaurant-management",
+    "title": "海外餐饮管理系统",
+    "description": "面向餐饮门店日常运营，围绕点单、桌台、订单、交班与库存管理，打造覆盖核心业务流程的一体化管理系统。",
+    "year": null,
+    "type": null,
+    "platform": "Desktop Web",
+    "tags": [
+      "B端产品",
+      "Web 后台",
+      "业务流程设计"
+    ],
+    "cover": "/projects/restaurant-management/restaurant-management-01.webp",
+    "images": [
+      {
+        "title": "项目封面",
+        "src": "/projects/restaurant-management/restaurant-management-01.webp",
+        "full": "/projects/restaurant-management/restaurant-management-01.webp",
+        "width": 2880,
+        "height": 1622
+      },
+      {
+        "title": "产品介绍",
+        "src": "/projects/restaurant-management/restaurant-management-02.webp",
+        "full": "/projects/restaurant-management/restaurant-management-02.webp",
+        "width": 2880,
+        "height": 722
+      },
+      {
+        "title": "员工登录与开班",
+        "src": "/projects/restaurant-management/restaurant-management-03.webp",
+        "full": "/projects/restaurant-management/restaurant-management-03.webp",
+        "width": 2880,
+        "height": 2198
+      },
+      {
+        "title": "点单收银与支付",
+        "src": "/projects/restaurant-management/restaurant-management-04.webp",
+        "full": "/projects/restaurant-management/restaurant-management-04.webp",
+        "width": 2880,
+        "height": 4017
+      },
+      {
+        "title": "桌台管理",
+        "src": "/projects/restaurant-management/restaurant-management-05.webp",
+        "full": "/projects/restaurant-management/restaurant-management-05.webp",
+        "width": 2880,
+        "height": 2093
+      },
+      {
+        "title": "历史订单",
+        "src": "/projects/restaurant-management/restaurant-management-06.webp",
+        "full": "/projects/restaurant-management/restaurant-management-06.webp",
+        "width": 2880,
+        "height": 2093
+      },
+      {
+        "title": "当班对账",
+        "src": "/projects/restaurant-management/restaurant-management-07.webp",
+        "full": "/projects/restaurant-management/restaurant-management-07.webp",
+        "width": 2880,
+        "height": 2093
+      },
+      {
+        "title": "库存管理",
+        "src": "/projects/restaurant-management/restaurant-management-08.webp",
+        "full": "/projects/restaurant-management/restaurant-management-08.webp",
+        "width": 2880,
+        "height": 3591
+      },
+      {
+        "title": "页面总览",
+        "src": "/projects/restaurant-management/restaurant-management-09.webp",
+        "full": "/projects/restaurant-management/restaurant-management-09.webp",
+        "width": 2880,
+        "height": 1620
+      }
+    ]
+  },
+  {
+    "slug": "voice-changer",
+    "title": "奔星变声喇叭",
+    "description": "围绕语音变声与趣味互动场景，参与移动端产品体验设计，呈现功能操作、内容展示与活动运营等核心体验。",
+    "year": null,
+    "type": null,
+    "platform": "Mobile App",
+    "tags": [
+      "C端产品",
+      "移动端 App",
+      "娱乐体验设计"
+    ],
+    "cover": "/projects/voice-changer/voice-changer-cover.webp",
+    "images": [
+      {
+        "title": "项目封面与设计思路",
+        "src": "/projects/voice-changer/voice-changer-01.webp",
+        "full": "/projects/voice-changer/voice-changer-01.webp",
+        "width": 2880,
+        "height": 6269
+      },
+      {
+        "title": "字体与色彩规范",
+        "src": "/projects/voice-changer/voice-changer-02.webp",
+        "full": "/projects/voice-changer/voice-changer-02.webp",
+        "width": 2880,
+        "height": 5004
+      },
+      {
+        "title": "核心页面与趣味玩法",
+        "src": "/projects/voice-changer/voice-changer-03.webp",
+        "full": "/projects/voice-changer/voice-changer-03.webp",
+        "width": 2880,
+        "height": 7989
+      },
+      {
+        "title": "变声流程",
+        "src": "/projects/voice-changer/voice-changer-04.webp",
+        "full": "/projects/voice-changer/voice-changer-04.webp",
+        "width": 2880,
+        "height": 6297
+      },
+      {
+        "title": "我的页面与签到奖励",
+        "src": "/projects/voice-changer/voice-changer-05.webp",
+        "full": "/projects/voice-changer/voice-changer-05.webp",
+        "width": 2880,
+        "height": 8100
+      },
+      {
+        "title": "活动运营",
+        "src": "/projects/voice-changer/voice-changer-06.webp",
+        "full": "/projects/voice-changer/voice-changer-06.webp",
+        "width": 2880,
+        "height": 5708
+      },
+      {
+        "title": "页面总览",
+        "src": "/projects/voice-changer/voice-changer-07.webp",
+        "full": "/projects/voice-changer/voice-changer-07.webp",
+        "width": 2880,
+        "height": 5708
+      }
+    ]
+  },
+  {
+    "slug": "green-veins",
+    "title": "绿脉 Green Veins",
+    "description": "绿脉 Green Veins 是一款倡导可持续生活方式的环保应用，通过个性化环保任务与激励机制，鼓励用户将环保行动融入日常生活，让可持续生活变得更加轻松、有趣。",
+    "year": 2024,
+    "type": "个人项目",
+    "platform": "Mobile App",
+    "tags": [
+      "个人项目",
+      "移动端 App",
+      "产品设计"
+    ],
+    "cover": "/projects/green-veins/green-veins-01.webp",
+    "images": [
+      {
+        "title": "项目封面",
+        "src": "/projects/green-veins/green-veins-01.webp",
+        "full": "/projects/green-veins/green-veins-01.webp",
+        "width": 3840,
+        "height": 2160
+      },
+      {
+        "title": "项目介绍与产品目标",
+        "src": "/projects/green-veins/green-veins-02.webp",
+        "full": "/projects/green-veins/green-veins-02.webp",
+        "width": 3840,
+        "height": 6176
+      },
+      {
+        "title": "设计规范",
+        "src": "/projects/green-veins/green-veins-03.webp",
+        "full": "/projects/green-veins/green-veins-03.webp",
+        "width": 3840,
+        "height": 7060
+      },
+      {
+        "title": "首页功能与图标",
+        "src": "/projects/green-veins/green-veins-04.webp",
+        "full": "/projects/green-veins/green-veins-04.webp",
+        "width": 4060,
+        "height": 11799
+      },
+      {
+        "title": "积分商城与个人模块",
+        "src": "/projects/green-veins/green-veins-05.webp",
+        "full": "/projects/green-veins/green-veins-05.webp",
+        "width": 4060,
+        "height": 6796
+      },
+      {
+        "title": "页面总览",
+        "src": "/projects/green-veins/green-veins-06.webp",
+        "full": "/projects/green-veins/green-veins-06.webp",
+        "width": 3840,
+        "height": 7214
+      }
+    ]
+  },
+  {
+    "slug": "oppo-weather",
+    "title": "OPPO 天气 App",
+    "description": "通过用户调研与实际使用体验分析，梳理天气信息获取中的需求与问题，并提出针对性的体验优化建议。",
+    "year": 2025,
+    "type": "用户研究 · 体验分析",
+    "platform": "Mobile App",
+    "tags": [
+      "用户研究",
+      "移动端 App",
+      "体验优化"
+    ],
+    "cover": "/projects/oppo-weather/cover.png",
+    "images": [
+      {
+        "title": "项目封面",
+        "src": "/projects/oppo-weather/oppo-weather-01.webp",
+        "full": "/projects/oppo-weather/oppo-weather-01.webp",
+        "width": 2880,
+        "height": 1740
+      },
+      {
+        "title": "项目概况与背景",
+        "src": "/projects/oppo-weather/oppo-weather-02.webp",
+        "full": "/projects/oppo-weather/oppo-weather-02.webp",
+        "width": 2880,
+        "height": 1740
+      },
+      {
+        "title": "需求分析",
+        "src": "/projects/oppo-weather/oppo-weather-03.webp",
+        "full": "/projects/oppo-weather/oppo-weather-03.webp",
+        "width": 2880,
+        "height": 2540
+      },
+      {
+        "title": "用户调研",
+        "src": "/projects/oppo-weather/oppo-weather-04.webp",
+        "full": "/projects/oppo-weather/oppo-weather-04.webp",
+        "width": 2880,
+        "height": 2432
+      },
+      {
+        "title": "用户画像",
+        "src": "/projects/oppo-weather/oppo-weather-05.webp",
+        "full": "/projects/oppo-weather/oppo-weather-05.webp",
+        "width": 2880,
+        "height": 3968
+      },
+      {
+        "title": "使用场景与需求",
+        "src": "/projects/oppo-weather/oppo-weather-06.webp",
+        "full": "/projects/oppo-weather/oppo-weather-06.webp",
+        "width": 2880,
+        "height": 2637
+      },
+      {
+        "title": "地域差异",
+        "src": "/projects/oppo-weather/oppo-weather-07.webp",
+        "full": "/projects/oppo-weather/oppo-weather-07.webp",
+        "width": 2880,
+        "height": 2472
+      },
+      {
+        "title": "天气页面体验走查",
+        "src": "/projects/oppo-weather/oppo-weather-08.webp",
+        "full": "/projects/oppo-weather/oppo-weather-08.webp",
+        "width": 2880,
+        "height": 2706
+      },
+      {
+        "title": "调研结果",
+        "src": "/projects/oppo-weather/oppo-weather-09.webp",
+        "full": "/projects/oppo-weather/oppo-weather-09.webp",
+        "width": 2880,
+        "height": 1590
+      }
+    ]
+  }
+]

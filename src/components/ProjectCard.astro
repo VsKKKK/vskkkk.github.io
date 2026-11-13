@@ -1,0 +1,27 @@
+---
+interface Props {
+  project: { slug: string; title: string; tags: string[]; cover: string; coverSmall?: string };
+  eager?: boolean;
+}
+const { project, eager = false } = Astro.props;
+---
+<article class="project-card">
+  <a draggable="false" href={`/work/${project.slug}/`}>
+    <div class="project-card-media">
+      <img src={project.cover}
+        srcset={project.coverSmall ? `${project.coverSmall} 800w, ${project.cover} 1440w` : undefined}
+        sizes="(max-width: 640px) calc(100vw - 38px), (max-width: 1148px) calc(50vw - 46px), 528px"
+        width="1440" height="810" alt="" loading={eager ? 'eager' : 'lazy'}
+        decoding="async" draggable="false" />
+    </div>
+    <div class="project-card-caption">
+      <div>
+        <h3>{project.title}</h3>
+        <ul class="project-card-tags" aria-label="项目主题" role="list">
+          {project.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </div>
+      <span aria-hidden="true">↗</span>
+    </div>
+  </a>
+</article>

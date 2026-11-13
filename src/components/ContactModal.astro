@@ -1,0 +1,31 @@
+---
+import { site } from '../data/site';
+---
+<dialog class="contact-modal" id="contact-modal" aria-labelledby="contact-title">
+  <div class="contact-heading">
+    <h2 id="contact-title">{site.name} <span>｜ UX/UI 设计师</span></h2>
+    <form method="dialog">
+      <button class="contact-close" type="submit" aria-label="关闭联系面板" autofocus>×</button>
+    </form>
+  </div>
+  <a class="contact-email" href={`mailto:${site.email}`}>
+    <span aria-hidden="true">✉</span>{site.email}
+  </a>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('#contact-modal');
+
+  if (dialog) {
+    document.querySelectorAll<HTMLButtonElement>('[data-contact-trigger]').forEach((button) => {
+      button.addEventListener('click', () => dialog.showModal());
+    });
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const box = dialog.getBoundingClientRect();
+      if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) {
+        dialog.close();
+      }
+    });
+  }
+</script>
