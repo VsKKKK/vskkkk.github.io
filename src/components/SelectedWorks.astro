@@ -1,14 +1,13 @@
 ---
-import projects from '../data/projects.json';
+import { selectedProjects } from '../data/selected-projects';
 import ProjectCard from './ProjectCard.astro';
 
-const selected = projects.filter((project) => project.cover);
 ---
-{selected.length > 0 && (
+{selectedProjects.length > 0 && (
   <section class="site-shell home-works" id="works" aria-labelledby="works-title">
     <h2 class="visually-hidden" id="works-title">Selected Works</h2>
     <div class="home-works-grid">
-      {selected.map((project, index) => <ProjectCard project={project} eager={index === 0} />)}
+      {selectedProjects.map((project, index) => <ProjectCard project={project} eager={index === 0} />)}
     </div>
   </section>
 )}
