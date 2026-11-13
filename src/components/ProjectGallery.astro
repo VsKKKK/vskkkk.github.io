@@ -2,19 +2,36 @@
 interface Board {
   title: string;
   src: string;
+  srcset: string;
   full: string;
   width: number;
   height: number;
 }
 interface Props { images: Board[] }
 const { images } = Astro.props;
+const sizes = '(max-width: 640px) calc(100vw - 28px), (max-width: 1148px) calc(100vw - 48px), 1100px';
 ---
+<noscript><style is:inline>[data-gallery] img[data-gallery-src] { display: none; }</style></noscript>
 <ol class="project-gallery" aria-label="项目画板" role="list" data-gallery>
   {images.map((image, index) => (
     <li>
       <a href={image.full} data-board data-title={image.title} aria-label={`放大查看 ${image.title}`}>
-        <img src={image.src} width={image.width} height={image.height} alt={image.title}
-          loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+        {index === 0 ? (
+          <img src={image.src} srcset={image.srcset} sizes={sizes}
+            width={image.width} height={image.height} alt={image.title}
+            loading="eager" fetchpriority="high" decoding="async" />
+        ) : (
+          <>
+            <img data-gallery-src={image.src} data-gallery-srcset={image.srcset} sizes={sizes}
+              width={image.width} height={image.height} alt={image.title}
+              style={`aspect-ratio: ${image.width} / ${image.height}`}
+              loading="lazy" decoding="async" />
+            <noscript>
+              <img src={image.src} srcset={image.srcset} sizes={sizes}
+                width={image.width} height={image.height} alt={image.title} loading="lazy" decoding="async" />
+            </noscript>
+          </>
+        )}
       </a>
     </li>
   ))}
@@ -29,11 +46,29 @@ const { images } = Astro.props;
       <form method="dialog"><button class="button-pill" type="submit" aria-label="关闭画板" autofocus>×</button></form>
     </div>
   </header>
-  <div class="board-scroll"><img alt="" data-board-image /></div>
+  <div class="board-scroll">
+    <img alt="" sizes="(max-width: 1352px) calc(100vw - 32px), 1320px" decoding="async" data-board-image />
+  </div>
 </dialog>
 
 <script>
   const gallery = document.querySelector<HTMLElement>('[data-gallery]');
+  const deferred = gallery?.querySelectorAll<HTMLImageElement>('img[data-gallery-src]');
+  const loadPreview = (preview: HTMLImageElement) => {
+    const { gallerySrc, gallerySrcset } = preview.dataset;
+    if (gallerySrcset) preview.srcset = gallerySrcset;
+    if (gallerySrc) preview.src = gallerySrc;
+  };
+  if (deferred?.length) {
+    const observer = new IntersectionObserver((entries) => {
+      for (const { target, isIntersecting } of entries) {
+        if (!isIntersecting) continue;
+        loadPreview(target as HTMLImageElement);
+        observer.unobserve(target);
+      }
+    }, { root: gallery?.closest('.site-scroll'), rootMargin: '300px 0px' });
+    deferred.forEach(preview => observer.observe(preview));
+  }
   const viewer = document.querySelector<HTMLDialogElement>('#board-viewer');
   const image = viewer?.querySelector<HTMLImageElement>('[data-board-image]');
   const title = viewer?.querySelector<HTMLElement>('#board-title');
@@ -49,12 +84,14 @@ const { images } = Astro.props;
 
     function showBoard(index: number) {
       const board = boards[index];
-      if (!board) return;
+      const preview = board?.querySelector('img');
+      if (!board || !preview) return;
       current = index;
       const label = board.dataset.title ?? '';
       title.textContent = `${index + 1} / ${boards.length} · ${label}`;
       image.alt = label;
-      image.src = board.href;
+      image.srcset = preview.dataset.gallerySrcset ?? preview.srcset;
+      image.src = preview.dataset.gallerySrc ?? preview.src;
       full.href = board.href;
       previous.disabled = index === 0;
       next.disabled = index === boards.length - 1;
@@ -78,6 +115,7 @@ const { images } = Astro.props;
       showBoard(current + (event.key === 'ArrowLeft' ? -1 : 1));
     });
     viewer.addEventListener('close', () => {
+      image.removeAttribute('srcset');
       image.removeAttribute('src');
       opener?.focus({ preventScroll: true });
     });

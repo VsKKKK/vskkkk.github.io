@@ -3,122 +3,6 @@
     "slug": "marketgrid-cas",
     "title": "MarketGrid CAS",
     "subtitle": "内容运营管理系统",
-    "cover": "/projects/marketgrid-cas/cover-1440.webp",
-    "images": [
-      {
-        "title": "封面｜内容运营管理系统",
-        "src": "/projects/marketgrid-cas/boards/01-cover-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/01-cover.webp",
-        "width": 1440,
-        "height": 810
-      },
-      {
-        "title": "项目介绍与项目背景",
-        "src": "/projects/marketgrid-cas/boards/02-project-introduction-and-context-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/02-project-introduction-and-context.webp",
-        "width": 1440,
-        "height": 2815
-      },
-      {
-        "title": "CAS 系统架构设计",
-        "src": "/projects/marketgrid-cas/boards/03-system-architecture-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/03-system-architecture.webp",
-        "width": 1440,
-        "height": 1617
-      },
-      {
-        "title": "设计方向",
-        "src": "/projects/marketgrid-cas/boards/04-design-direction-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/04-design-direction.webp",
-        "width": 1440,
-        "height": 1626
-      },
-      {
-        "title": "Part 01｜系统基础建设",
-        "src": "/projects/marketgrid-cas/boards/05-part-01-system-foundation-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/05-part-01-system-foundation.webp",
-        "width": 1440,
-        "height": 285
-      },
-      {
-        "title": "界面框架",
-        "src": "/projects/marketgrid-cas/boards/06-interface-framework-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/06-interface-framework.webp",
-        "width": 1440,
-        "height": 874
-      },
-      {
-        "title": "信息层级",
-        "src": "/projects/marketgrid-cas/boards/07-information-hierarchy-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/07-information-hierarchy.webp",
-        "width": 1440,
-        "height": 1156
-      },
-      {
-        "title": "页面模板",
-        "src": "/projects/marketgrid-cas/boards/08-page-patterns-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/08-page-patterns.webp",
-        "width": 1440,
-        "height": 706
-      },
-      {
-        "title": "组件与状态规范",
-        "src": "/projects/marketgrid-cas/boards/09-components-and-status-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/09-components-and-status.webp",
-        "width": 1440,
-        "height": 910
-      },
-      {
-        "title": "Part 02｜核心运营体验设计",
-        "src": "/projects/marketgrid-cas/boards/10-part-02-core-operation-experience-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/10-part-02-core-operation-experience.webp",
-        "width": 1440,
-        "height": 285
-      },
-      {
-        "title": "运营工作台",
-        "src": "/projects/marketgrid-cas/boards/11-operation-workbench-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/11-operation-workbench.webp",
-        "width": 1440,
-        "height": 874
-      },
-      {
-        "title": "推荐区域管理",
-        "src": "/projects/marketgrid-cas/boards/12-recommendation-areas-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/12-recommendation-areas.webp",
-        "width": 1440,
-        "height": 614
-      },
-      {
-        "title": "推荐组合配置",
-        "src": "/projects/marketgrid-cas/boards/13-recommendation-composition-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/13-recommendation-composition.webp",
-        "width": 1440,
-        "height": 874
-      },
-      {
-        "title": "通知排期管理",
-        "src": "/projects/marketgrid-cas/boards/14-notification-scheduling-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/14-notification-scheduling.webp",
-        "width": 1440,
-        "height": 874
-      },
-      {
-        "title": "通知内容与展示配置",
-        "src": "/projects/marketgrid-cas/boards/15-notification-configuration-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/15-notification-configuration.webp",
-        "width": 1440,
-        "height": 936
-      },
-      {
-        "title": "页面总览",
-        "src": "/projects/marketgrid-cas/boards/16-page-overview-1440.webp",
-        "full": "/projects/marketgrid-cas/boards/16-page-overview.webp",
-        "width": 1440,
-        "height": 810
-      }
-    ],
-    "coverSmall": "/projects/marketgrid-cas/cover-800.webp",
     "type": "企业后台 · UX/UI 设计",
     "description": "MarketGrid CAS 内容运营管理系统，覆盖运营工作台、推荐区域与组合配置，以及通知排期和展示配置。",
     "year": 2026,
@@ -127,6 +11,142 @@
       "B端产品",
       "Web 后台",
       "内容运营设计"
+    ],
+    "cover": {
+      "src": "/responsive/projects/marketgrid-cas/cover-1440-1200-q89.webp",
+      "width": 1200,
+      "height": 675,
+      "srcset": "/responsive/projects/marketgrid-cas/cover-1440-480-q89.webp 480w, /responsive/projects/marketgrid-cas/cover-1440-800-q89.webp 800w, /responsive/projects/marketgrid-cas/cover-1440-1200-q89.webp 1200w, /responsive/projects/marketgrid-cas/cover-1440-1440-q89.webp 1440w"
+    },
+    "images": [
+      {
+        "title": "封面｜内容运营管理系统",
+        "full": "/projects/marketgrid-cas/boards/01-cover.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/01-cover-1200-q91.webp",
+        "width": 1440,
+        "height": 810,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/01-cover-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/01-cover-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/01-cover-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/01-cover-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/01-cover-2200-q91.webp 2200w"
+      },
+      {
+        "title": "项目介绍与项目背景",
+        "full": "/projects/marketgrid-cas/boards/02-project-introduction-and-context.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/02-project-introduction-and-context-1200-q91.webp",
+        "width": 1440,
+        "height": 2815,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/02-project-introduction-and-context-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/02-project-introduction-and-context-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/02-project-introduction-and-context-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/02-project-introduction-and-context-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/02-project-introduction-and-context-2200-q91.webp 2200w"
+      },
+      {
+        "title": "CAS 系统架构设计",
+        "full": "/projects/marketgrid-cas/boards/03-system-architecture.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/03-system-architecture-1200-q91.webp",
+        "width": 1440,
+        "height": 1617,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/03-system-architecture-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/03-system-architecture-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/03-system-architecture-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/03-system-architecture-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/03-system-architecture-2200-q91.webp 2200w"
+      },
+      {
+        "title": "设计方向",
+        "full": "/projects/marketgrid-cas/boards/04-design-direction.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/04-design-direction-1200-q91.webp",
+        "width": 1440,
+        "height": 1626,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/04-design-direction-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/04-design-direction-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/04-design-direction-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/04-design-direction-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/04-design-direction-2200-q91.webp 2200w"
+      },
+      {
+        "title": "Part 01｜系统基础建设",
+        "full": "/projects/marketgrid-cas/boards/05-part-01-system-foundation.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/05-part-01-system-foundation-1200-q91.webp",
+        "width": 1440,
+        "height": 285,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/05-part-01-system-foundation-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/05-part-01-system-foundation-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/05-part-01-system-foundation-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/05-part-01-system-foundation-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/05-part-01-system-foundation-2200-q91.webp 2200w"
+      },
+      {
+        "title": "界面框架",
+        "full": "/projects/marketgrid-cas/boards/06-interface-framework.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/06-interface-framework-1200-q91.webp",
+        "width": 1440,
+        "height": 874,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/06-interface-framework-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/06-interface-framework-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/06-interface-framework-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/06-interface-framework-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/06-interface-framework-2200-q91.webp 2200w"
+      },
+      {
+        "title": "信息层级",
+        "full": "/projects/marketgrid-cas/boards/07-information-hierarchy.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/07-information-hierarchy-1200-q91.webp",
+        "width": 1440,
+        "height": 1156,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/07-information-hierarchy-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/07-information-hierarchy-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/07-information-hierarchy-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/07-information-hierarchy-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/07-information-hierarchy-2200-q91.webp 2200w"
+      },
+      {
+        "title": "页面模板",
+        "full": "/projects/marketgrid-cas/boards/08-page-patterns.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/08-page-patterns-1200-q91.webp",
+        "width": 1440,
+        "height": 706,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/08-page-patterns-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/08-page-patterns-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/08-page-patterns-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/08-page-patterns-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/08-page-patterns-2200-q91.webp 2200w"
+      },
+      {
+        "title": "组件与状态规范",
+        "full": "/projects/marketgrid-cas/boards/09-components-and-status.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/09-components-and-status-1200-q91.webp",
+        "width": 1440,
+        "height": 910,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/09-components-and-status-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/09-components-and-status-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/09-components-and-status-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/09-components-and-status-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/09-components-and-status-2200-q91.webp 2200w"
+      },
+      {
+        "title": "Part 02｜核心运营体验设计",
+        "full": "/projects/marketgrid-cas/boards/10-part-02-core-operation-experience.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/10-part-02-core-operation-experience-1200-q91.webp",
+        "width": 1440,
+        "height": 285,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/10-part-02-core-operation-experience-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/10-part-02-core-operation-experience-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/10-part-02-core-operation-experience-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/10-part-02-core-operation-experience-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/10-part-02-core-operation-experience-2200-q91.webp 2200w"
+      },
+      {
+        "title": "运营工作台",
+        "full": "/projects/marketgrid-cas/boards/11-operation-workbench.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/11-operation-workbench-1200-q91.webp",
+        "width": 1440,
+        "height": 874,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/11-operation-workbench-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/11-operation-workbench-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/11-operation-workbench-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/11-operation-workbench-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/11-operation-workbench-2200-q91.webp 2200w"
+      },
+      {
+        "title": "推荐区域管理",
+        "full": "/projects/marketgrid-cas/boards/12-recommendation-areas.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/12-recommendation-areas-1200-q91.webp",
+        "width": 1440,
+        "height": 614,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/12-recommendation-areas-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/12-recommendation-areas-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/12-recommendation-areas-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/12-recommendation-areas-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/12-recommendation-areas-2200-q91.webp 2200w"
+      },
+      {
+        "title": "推荐组合配置",
+        "full": "/projects/marketgrid-cas/boards/13-recommendation-composition.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/13-recommendation-composition-1200-q91.webp",
+        "width": 1440,
+        "height": 874,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/13-recommendation-composition-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/13-recommendation-composition-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/13-recommendation-composition-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/13-recommendation-composition-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/13-recommendation-composition-2200-q91.webp 2200w"
+      },
+      {
+        "title": "通知排期管理",
+        "full": "/projects/marketgrid-cas/boards/14-notification-scheduling.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/14-notification-scheduling-1200-q91.webp",
+        "width": 1440,
+        "height": 874,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/14-notification-scheduling-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/14-notification-scheduling-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/14-notification-scheduling-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/14-notification-scheduling-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/14-notification-scheduling-2200-q91.webp 2200w"
+      },
+      {
+        "title": "通知内容与展示配置",
+        "full": "/projects/marketgrid-cas/boards/15-notification-configuration.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/15-notification-configuration-1200-q91.webp",
+        "width": 1440,
+        "height": 936,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/15-notification-configuration-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/15-notification-configuration-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/15-notification-configuration-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/15-notification-configuration-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/15-notification-configuration-2200-q91.webp 2200w"
+      },
+      {
+        "title": "页面总览",
+        "full": "/projects/marketgrid-cas/boards/16-page-overview.webp",
+        "src": "/responsive/projects/marketgrid-cas/boards/16-page-overview-1200-q91.webp",
+        "width": 1440,
+        "height": 810,
+        "srcset": "/responsive/projects/marketgrid-cas/boards/16-page-overview-480-q91.webp 480w, /responsive/projects/marketgrid-cas/boards/16-page-overview-800-q91.webp 800w, /responsive/projects/marketgrid-cas/boards/16-page-overview-1200-q91.webp 1200w, /responsive/projects/marketgrid-cas/boards/16-page-overview-1600-q91.webp 1600w, /responsive/projects/marketgrid-cas/boards/16-page-overview-2200-q91.webp 2200w"
+      }
     ]
   },
   {
@@ -141,70 +161,84 @@
       "Web 后台",
       "业务流程设计"
     ],
-    "cover": "/projects/restaurant-management/restaurant-management-01.webp",
+    "cover": {
+      "src": "/responsive/projects/restaurant-management/restaurant-management-01-1200-q89.webp",
+      "width": 1200,
+      "height": 676,
+      "srcset": "/responsive/projects/restaurant-management/restaurant-management-01-480-q89.webp 480w, /responsive/projects/restaurant-management/restaurant-management-01-800-q89.webp 800w, /responsive/projects/restaurant-management/restaurant-management-01-1200-q89.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-01-1600-q89.webp 1600w"
+    },
     "images": [
       {
         "title": "项目封面",
-        "src": "/projects/restaurant-management/restaurant-management-01.webp",
         "full": "/projects/restaurant-management/restaurant-management-01.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-01-1200-q91.webp",
         "width": 2880,
-        "height": 1622
+        "height": 1622,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-01-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-01-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-01-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-01-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-01-2200-q91.webp 2200w"
       },
       {
         "title": "产品介绍",
-        "src": "/projects/restaurant-management/restaurant-management-02.webp",
         "full": "/projects/restaurant-management/restaurant-management-02.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-02-1200-q91.webp",
         "width": 2880,
-        "height": 722
+        "height": 722,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-02-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-02-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-02-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-02-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-02-2200-q91.webp 2200w"
       },
       {
         "title": "员工登录与开班",
-        "src": "/projects/restaurant-management/restaurant-management-03.webp",
         "full": "/projects/restaurant-management/restaurant-management-03.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-03-1200-q91.webp",
         "width": 2880,
-        "height": 2198
+        "height": 2198,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-03-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-03-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-03-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-03-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-03-2200-q91.webp 2200w"
       },
       {
         "title": "点单收银与支付",
-        "src": "/projects/restaurant-management/restaurant-management-04.webp",
         "full": "/projects/restaurant-management/restaurant-management-04.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-04-1200-q91.webp",
         "width": 2880,
-        "height": 4017
+        "height": 4017,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-04-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-04-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-04-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-04-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-04-2200-q91.webp 2200w"
       },
       {
         "title": "桌台管理",
-        "src": "/projects/restaurant-management/restaurant-management-05.webp",
         "full": "/projects/restaurant-management/restaurant-management-05.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-05-1200-q91.webp",
         "width": 2880,
-        "height": 2093
+        "height": 2093,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-05-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-05-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-05-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-05-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-05-2200-q91.webp 2200w"
       },
       {
         "title": "历史订单",
-        "src": "/projects/restaurant-management/restaurant-management-06.webp",
         "full": "/projects/restaurant-management/restaurant-management-06.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-06-1200-q91.webp",
         "width": 2880,
-        "height": 2093
+        "height": 2093,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-06-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-06-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-06-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-06-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-06-2200-q91.webp 2200w"
       },
       {
         "title": "当班对账",
-        "src": "/projects/restaurant-management/restaurant-management-07.webp",
         "full": "/projects/restaurant-management/restaurant-management-07.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-07-1200-q91.webp",
         "width": 2880,
-        "height": 2093
+        "height": 2093,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-07-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-07-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-07-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-07-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-07-2200-q91.webp 2200w"
       },
       {
         "title": "库存管理",
-        "src": "/projects/restaurant-management/restaurant-management-08.webp",
         "full": "/projects/restaurant-management/restaurant-management-08.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-08-1200-q91.webp",
         "width": 2880,
-        "height": 3591
+        "height": 3591,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-08-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-08-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-08-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-08-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-08-2200-q91.webp 2200w"
       },
       {
         "title": "页面总览",
-        "src": "/projects/restaurant-management/restaurant-management-09.webp",
         "full": "/projects/restaurant-management/restaurant-management-09.webp",
+        "src": "/responsive/projects/restaurant-management/restaurant-management-09-1200-q91.webp",
         "width": 2880,
-        "height": 1620
+        "height": 1620,
+        "srcset": "/responsive/projects/restaurant-management/restaurant-management-09-480-q91.webp 480w, /responsive/projects/restaurant-management/restaurant-management-09-800-q91.webp 800w, /responsive/projects/restaurant-management/restaurant-management-09-1200-q91.webp 1200w, /responsive/projects/restaurant-management/restaurant-management-09-1600-q91.webp 1600w, /responsive/projects/restaurant-management/restaurant-management-09-2200-q91.webp 2200w"
       }
     ]
   },
@@ -220,56 +254,68 @@
       "移动端 App",
       "娱乐体验设计"
     ],
-    "cover": "/projects/voice-changer/voice-changer-cover.webp",
+    "cover": {
+      "src": "/responsive/projects/voice-changer/voice-changer-cover-1200-q89.webp",
+      "width": 1200,
+      "height": 675,
+      "srcset": "/responsive/projects/voice-changer/voice-changer-cover-480-q89.webp 480w, /responsive/projects/voice-changer/voice-changer-cover-800-q89.webp 800w, /responsive/projects/voice-changer/voice-changer-cover-1200-q89.webp 1200w, /responsive/projects/voice-changer/voice-changer-cover-1600-q89.webp 1600w"
+    },
     "images": [
       {
         "title": "项目封面与设计思路",
-        "src": "/projects/voice-changer/voice-changer-01.webp",
         "full": "/projects/voice-changer/voice-changer-01.webp",
+        "src": "/responsive/projects/voice-changer/voice-changer-01-1200-q91.webp",
         "width": 2880,
-        "height": 6269
+        "height": 6269,
+        "srcset": "/responsive/projects/voice-changer/voice-changer-01-480-q91.webp 480w, /responsive/projects/voice-changer/voice-changer-01-800-q91.webp 800w, /responsive/projects/voice-changer/voice-changer-01-1200-q91.webp 1200w, /responsive/projects/voice-changer/voice-changer-01-1600-q91.webp 1600w, /responsive/projects/voice-changer/voice-changer-01-2200-q91.webp 2200w"
       },
       {
         "title": "字体与色彩规范",
-        "src": "/projects/voice-changer/voice-changer-02.webp",
         "full": "/projects/voice-changer/voice-changer-02.webp",
+        "src": "/responsive/projects/voice-changer/voice-changer-02-1200-q91.webp",
         "width": 2880,
-        "height": 5004
+        "height": 5004,
+        "srcset": "/responsive/projects/voice-changer/voice-changer-02-480-q91.webp 480w, /responsive/projects/voice-changer/voice-changer-02-800-q91.webp 800w, /responsive/projects/voice-changer/voice-changer-02-1200-q91.webp 1200w, /responsive/projects/voice-changer/voice-changer-02-1600-q91.webp 1600w, /responsive/projects/voice-changer/voice-changer-02-2200-q91.webp 2200w"
       },
       {
         "title": "核心页面与趣味玩法",
-        "src": "/projects/voice-changer/voice-changer-03.webp",
         "full": "/projects/voice-changer/voice-changer-03.webp",
+        "src": "/responsive/projects/voice-changer/voice-changer-03-1200-q91.webp",
         "width": 2880,
-        "height": 7989
+        "height": 7989,
+        "srcset": "/responsive/projects/voice-changer/voice-changer-03-480-q91.webp 480w, /responsive/projects/voice-changer/voice-changer-03-800-q91.webp 800w, /responsive/projects/voice-changer/voice-changer-03-1200-q91.webp 1200w, /responsive/projects/voice-changer/voice-changer-03-1600-q91.webp 1600w, /responsive/projects/voice-changer/voice-changer-03-2200-q91.webp 2200w"
       },
       {
         "title": "变声流程",
-        "src": "/projects/voice-changer/voice-changer-04.webp",
         "full": "/projects/voice-changer/voice-changer-04.webp",
+        "src": "/responsive/projects/voice-changer/voice-changer-04-1200-q91.webp",
         "width": 2880,
-        "height": 6297
+        "height": 6297,
+        "srcset": "/responsive/projects/voice-changer/voice-changer-04-480-q91.webp 480w, /responsive/projects/voice-changer/voice-changer-04-800-q91.webp 800w, /responsive/projects/voice-changer/voice-changer-04-1200-q91.webp 1200w, /responsive/projects/voice-changer/voice-changer-04-1600-q91.webp 1600w, /responsive/projects/voice-changer/voice-changer-04-2200-q91.webp 2200w"
       },
       {
         "title": "我的页面与签到奖励",
-        "src": "/projects/voice-changer/voice-changer-05.webp",
         "full": "/projects/voice-changer/voice-changer-05.webp",
+        "src": "/responsive/projects/voice-changer/voice-changer-05-1200-q91.webp",
         "width": 2880,
-        "height": 8100
+        "height": 8100,
+        "srcset": "/responsive/projects/voice-changer/voice-changer-05-480-q91.webp 480w, /responsive/projects/voice-changer/voice-changer-05-800-q91.webp 800w, /responsive/projects/voice-changer/voice-changer-05-1200-q91.webp 1200w, /responsive/projects/voice-changer/voice-changer-05-1600-q91.webp 1600w, /responsive/projects/voice-changer/voice-changer-05-2200-q91.webp 2200w"
       },
       {
         "title": "活动运营",
-        "src": "/projects/voice-changer/voice-changer-06.webp",
         "full": "/projects/voice-changer/voice-changer-06.webp",
+        "src": "/responsive/projects/voice-changer/voice-changer-06-1200-q91.webp",
         "width": 2880,
-        "height": 5708
+        "height": 5708,
+        "srcset": "/responsive/projects/voice-changer/voice-changer-06-480-q91.webp 480w, /responsive/projects/voice-changer/voice-changer-06-800-q91.webp 800w, /responsive/projects/voice-changer/voice-changer-06-1200-q91.webp 1200w, /responsive/projects/voice-changer/voice-changer-06-1600-q91.webp 1600w, /responsive/projects/voice-changer/voice-changer-06-2200-q91.webp 2200w"
       },
       {
         "title": "页面总览",
-        "src": "/projects/voice-changer/voice-changer-07.webp",
         "full": "/projects/voice-changer/voice-changer-07.webp",
+        "src": "/responsive/projects/voice-changer/voice-changer-07-1200-q91.webp",
         "width": 2880,
-        "height": 5708
+        "height": 5708,
+        "srcset": "/responsive/projects/voice-changer/voice-changer-07-480-q91.webp 480w, /responsive/projects/voice-changer/voice-changer-07-800-q91.webp 800w, /responsive/projects/voice-changer/voice-changer-07-1200-q91.webp 1200w, /responsive/projects/voice-changer/voice-changer-07-1600-q91.webp 1600w, /responsive/projects/voice-changer/voice-changer-07-2200-q91.webp 2200w"
       }
     ]
   },
@@ -285,49 +331,60 @@
       "移动端 App",
       "产品设计"
     ],
-    "cover": "/projects/green-veins/green-veins-01.webp",
+    "cover": {
+      "src": "/responsive/projects/green-veins/green-veins-01-1200-q89.webp",
+      "width": 1200,
+      "height": 675,
+      "srcset": "/responsive/projects/green-veins/green-veins-01-480-q89.webp 480w, /responsive/projects/green-veins/green-veins-01-800-q89.webp 800w, /responsive/projects/green-veins/green-veins-01-1200-q89.webp 1200w, /responsive/projects/green-veins/green-veins-01-1600-q89.webp 1600w"
+    },
     "images": [
       {
         "title": "项目封面",
-        "src": "/projects/green-veins/green-veins-01.webp",
         "full": "/projects/green-veins/green-veins-01.webp",
+        "src": "/responsive/projects/green-veins/green-veins-01-1200-q91.webp",
         "width": 3840,
-        "height": 2160
+        "height": 2160,
+        "srcset": "/responsive/projects/green-veins/green-veins-01-480-q91.webp 480w, /responsive/projects/green-veins/green-veins-01-800-q91.webp 800w, /responsive/projects/green-veins/green-veins-01-1200-q91.webp 1200w, /responsive/projects/green-veins/green-veins-01-1600-q91.webp 1600w, /responsive/projects/green-veins/green-veins-01-2200-q91.webp 2200w"
       },
       {
         "title": "项目介绍与产品目标",
-        "src": "/projects/green-veins/green-veins-02.webp",
         "full": "/projects/green-veins/green-veins-02.webp",
+        "src": "/responsive/projects/green-veins/green-veins-02-1200-q91.webp",
         "width": 3840,
-        "height": 6176
+        "height": 6176,
+        "srcset": "/responsive/projects/green-veins/green-veins-02-480-q91.webp 480w, /responsive/projects/green-veins/green-veins-02-800-q91.webp 800w, /responsive/projects/green-veins/green-veins-02-1200-q91.webp 1200w, /responsive/projects/green-veins/green-veins-02-1600-q91.webp 1600w, /responsive/projects/green-veins/green-veins-02-2200-q91.webp 2200w"
       },
       {
         "title": "设计规范",
-        "src": "/projects/green-veins/green-veins-03.webp",
         "full": "/projects/green-veins/green-veins-03.webp",
+        "src": "/responsive/projects/green-veins/green-veins-03-1200-q91.webp",
         "width": 3840,
-        "height": 7060
+        "height": 7060,
+        "srcset": "/responsive/projects/green-veins/green-veins-03-480-q91.webp 480w, /responsive/projects/green-veins/green-veins-03-800-q91.webp 800w, /responsive/projects/green-veins/green-veins-03-1200-q91.webp 1200w, /responsive/projects/green-veins/green-veins-03-1600-q91.webp 1600w, /responsive/projects/green-veins/green-veins-03-2200-q91.webp 2200w"
       },
       {
         "title": "首页功能与图标",
-        "src": "/projects/green-veins/green-veins-04.webp",
         "full": "/projects/green-veins/green-veins-04.webp",
+        "src": "/responsive/projects/green-veins/green-veins-04-1200-q91.webp",
         "width": 4060,
-        "height": 11799
+        "height": 11799,
+        "srcset": "/responsive/projects/green-veins/green-veins-04-480-q91.webp 480w, /responsive/projects/green-veins/green-veins-04-800-q91.webp 800w, /responsive/projects/green-veins/green-veins-04-1200-q91.webp 1200w, /responsive/projects/green-veins/green-veins-04-1600-q91.webp 1600w, /responsive/projects/green-veins/green-veins-04-2200-q91.webp 2200w"
       },
       {
         "title": "积分商城与个人模块",
-        "src": "/projects/green-veins/green-veins-05.webp",
         "full": "/projects/green-veins/green-veins-05.webp",
+        "src": "/responsive/projects/green-veins/green-veins-05-1200-q91.webp",
         "width": 4060,
-        "height": 6796
+        "height": 6796,
+        "srcset": "/responsive/projects/green-veins/green-veins-05-480-q91.webp 480w, /responsive/projects/green-veins/green-veins-05-800-q91.webp 800w, /responsive/projects/green-veins/green-veins-05-1200-q91.webp 1200w, /responsive/projects/green-veins/green-veins-05-1600-q91.webp 1600w, /responsive/projects/green-veins/green-veins-05-2200-q91.webp 2200w"
       },
       {
         "title": "页面总览",
-        "src": "/projects/green-veins/green-veins-06.webp",
         "full": "/projects/green-veins/green-veins-06.webp",
+        "src": "/responsive/projects/green-veins/green-veins-06-1200-q91.webp",
         "width": 3840,
-        "height": 7214
+        "height": 7214,
+        "srcset": "/responsive/projects/green-veins/green-veins-06-480-q91.webp 480w, /responsive/projects/green-veins/green-veins-06-800-q91.webp 800w, /responsive/projects/green-veins/green-veins-06-1200-q91.webp 1200w, /responsive/projects/green-veins/green-veins-06-1600-q91.webp 1600w, /responsive/projects/green-veins/green-veins-06-2200-q91.webp 2200w"
       }
     ]
   },
@@ -343,70 +400,84 @@
       "移动端 App",
       "体验优化"
     ],
-    "cover": "/projects/oppo-weather/cover.png",
+    "cover": {
+      "src": "/responsive/projects/oppo-weather/cover-1200-q89.webp",
+      "width": 1200,
+      "height": 675,
+      "srcset": "/responsive/projects/oppo-weather/cover-480-q89.webp 480w, /responsive/projects/oppo-weather/cover-800-q89.webp 800w, /responsive/projects/oppo-weather/cover-1200-q89.webp 1200w, /responsive/projects/oppo-weather/cover-1600-q89.webp 1600w"
+    },
     "images": [
       {
         "title": "项目封面",
-        "src": "/projects/oppo-weather/oppo-weather-01.webp",
         "full": "/projects/oppo-weather/oppo-weather-01.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-01-1200-q91.webp",
         "width": 2880,
-        "height": 1740
+        "height": 1740,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-01-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-01-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-01-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-01-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-01-2200-q91.webp 2200w"
       },
       {
         "title": "项目概况与背景",
-        "src": "/projects/oppo-weather/oppo-weather-02.webp",
         "full": "/projects/oppo-weather/oppo-weather-02.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-02-1200-q91.webp",
         "width": 2880,
-        "height": 1740
+        "height": 1740,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-02-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-02-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-02-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-02-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-02-2200-q91.webp 2200w"
       },
       {
         "title": "需求分析",
-        "src": "/projects/oppo-weather/oppo-weather-03.webp",
         "full": "/projects/oppo-weather/oppo-weather-03.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-03-1200-q91.webp",
         "width": 2880,
-        "height": 2540
+        "height": 2540,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-03-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-03-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-03-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-03-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-03-2200-q91.webp 2200w"
       },
       {
         "title": "用户调研",
-        "src": "/projects/oppo-weather/oppo-weather-04.webp",
         "full": "/projects/oppo-weather/oppo-weather-04.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-04-1200-q91.webp",
         "width": 2880,
-        "height": 2432
+        "height": 2432,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-04-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-04-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-04-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-04-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-04-2200-q91.webp 2200w"
       },
       {
         "title": "用户画像",
-        "src": "/projects/oppo-weather/oppo-weather-05.webp",
         "full": "/projects/oppo-weather/oppo-weather-05.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-05-1200-q91.webp",
         "width": 2880,
-        "height": 3968
+        "height": 3968,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-05-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-05-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-05-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-05-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-05-2200-q91.webp 2200w"
       },
       {
         "title": "使用场景与需求",
-        "src": "/projects/oppo-weather/oppo-weather-06.webp",
         "full": "/projects/oppo-weather/oppo-weather-06.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-06-1200-q91.webp",
         "width": 2880,
-        "height": 2637
+        "height": 2637,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-06-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-06-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-06-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-06-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-06-2200-q91.webp 2200w"
       },
       {
         "title": "地域差异",
-        "src": "/projects/oppo-weather/oppo-weather-07.webp",
         "full": "/projects/oppo-weather/oppo-weather-07.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-07-1200-q91.webp",
         "width": 2880,
-        "height": 2472
+        "height": 2472,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-07-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-07-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-07-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-07-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-07-2200-q91.webp 2200w"
       },
       {
         "title": "天气页面体验走查",
-        "src": "/projects/oppo-weather/oppo-weather-08.webp",
         "full": "/projects/oppo-weather/oppo-weather-08.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-08-1200-q91.webp",
         "width": 2880,
-        "height": 2706
+        "height": 2706,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-08-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-08-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-08-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-08-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-08-2200-q91.webp 2200w"
       },
       {
         "title": "调研结果",
-        "src": "/projects/oppo-weather/oppo-weather-09.webp",
         "full": "/projects/oppo-weather/oppo-weather-09.webp",
+        "src": "/responsive/projects/oppo-weather/oppo-weather-09-1200-q91.webp",
         "width": 2880,
-        "height": 1590
+        "height": 1590,
+        "srcset": "/responsive/projects/oppo-weather/oppo-weather-09-480-q91.webp 480w, /responsive/projects/oppo-weather/oppo-weather-09-800-q91.webp 800w, /responsive/projects/oppo-weather/oppo-weather-09-1200-q91.webp 1200w, /responsive/projects/oppo-weather/oppo-weather-09-1600-q91.webp 1600w, /responsive/projects/oppo-weather/oppo-weather-09-2200-q91.webp 2200w"
       }
     ]
   }

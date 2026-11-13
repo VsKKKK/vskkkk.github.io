@@ -1,17 +1,23 @@
 ---
 interface Props {
-  project: { slug: string; title: string; tags: string[]; cover: string; coverSmall?: string };
+  project: {
+    slug: string;
+    title: string;
+    tags: string[];
+    cover: { src: string; srcset: string; width: number; height: number };
+  };
   eager?: boolean;
 }
 const { project, eager = false } = Astro.props;
+const { cover } = project;
 ---
 <article class="project-card">
   <a draggable="false" href={`/work/${project.slug}/`}>
     <div class="project-card-media">
-      <img src={project.cover}
-        srcset={project.coverSmall ? `${project.coverSmall} 800w, ${project.cover} 1440w` : undefined}
+      <img src={cover.src} srcset={cover.srcset}
         sizes="(max-width: 640px) calc(100vw - 38px), (max-width: 1148px) calc(50vw - 46px), 528px"
-        width="1440" height="810" alt="" loading={eager ? 'eager' : 'lazy'}
+        width={cover.width} height={cover.height} alt="" loading={eager ? 'eager' : 'lazy'}
+        fetchpriority={eager ? 'high' : undefined}
         decoding="async" draggable="false" />
     </div>
     <div class="project-card-caption">
