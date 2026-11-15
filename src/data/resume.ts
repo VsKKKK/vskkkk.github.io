@@ -99,6 +99,7 @@ export const resume = {
       title: label,
       items: tools.map(({ name }) => name),
     })),
+    { title: '设计系统与前端', items: ['Design Systems', 'Prototyping', 'HTML/CSS', 'React', 'Tailwind'] },
   ],
 };
 
