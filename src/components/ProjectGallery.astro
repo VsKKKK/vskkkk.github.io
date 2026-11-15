@@ -1,123 +1,33 @@
 ---
+import previews from '../data/project-previews.json';
+
 interface Board {
   title: string;
   src: string;
-  srcset: string;
   full: string;
   width: number;
   height: number;
 }
-interface Props { images: Board[] }
-const { images } = Astro.props;
+interface Props {
+  images: Board[];
+  eagerFirst?: boolean;
+}
+const { images, eagerFirst = true } = Astro.props;
 const sizes = '(max-width: 640px) calc(100vw - 28px), (max-width: 1148px) calc(100vw - 48px), 1100px';
 ---
-<noscript><style is:inline>[data-gallery] img[data-gallery-src] { display: none; }</style></noscript>
 <ol class="project-gallery" aria-label="项目画板" role="list" data-gallery>
-  {images.map((image, index) => (
-    <li>
-      <a href={image.full} data-board data-title={image.title} aria-label={`放大查看 ${image.title}`}>
-        {index === 0 ? (
-          <img src={image.src} srcset={image.srcset} sizes={sizes}
+  {images.map((image, index) => {
+    const variants = previews[image.src as keyof typeof previews];
+    const priority = eagerFirst && index === 0;
+    return (
+      <li>
+        <a href={image.full} data-board target="_blank" rel="noopener" aria-label={`在新标签页查看原图：${image.title}`}>
+          <img src={variants?.[0].src ?? image.src}
+            srcset={variants?.map(({src, width}) => `${src} ${width}w`).join(', ')} sizes={variants ? sizes : undefined}
             width={image.width} height={image.height} alt={image.title}
-            loading="eager" fetchpriority="high" decoding="async" />
-        ) : (
-          <>
-            <img data-gallery-src={image.src} data-gallery-srcset={image.srcset} sizes={sizes}
-              width={image.width} height={image.height} alt={image.title}
-              style={`aspect-ratio: ${image.width} / ${image.height}`}
-              loading="lazy" decoding="async" />
-            <noscript>
-              <img src={image.src} srcset={image.srcset} sizes={sizes}
-                width={image.width} height={image.height} alt={image.title} loading="lazy" decoding="async" />
-            </noscript>
-          </>
-        )}
-      </a>
-    </li>
-  ))}
+            loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : undefined} decoding="async" />
+        </a>
+      </li>
+    );
+  })}
 </ol>
-<dialog class="board-viewer" id="board-viewer" aria-labelledby="board-title">
-  <header class="board-toolbar">
-    <h2 id="board-title"></h2>
-    <div class="board-controls">
-      <button class="button-pill" type="button" data-board-prev aria-label="上一张">←</button>
-      <button class="button-pill" type="button" data-board-next aria-label="下一张">→</button>
-      <a class="button-pill" data-board-full target="_blank" rel="noopener">原图 <span aria-hidden="true">↗</span></a>
-      <form method="dialog"><button class="button-pill" type="submit" aria-label="关闭画板" autofocus>×</button></form>
-    </div>
-  </header>
-  <div class="board-scroll">
-    <img alt="" sizes="(max-width: 1352px) calc(100vw - 32px), 1320px" decoding="async" data-board-image />
-  </div>
-</dialog>
-
-<script>
-  const gallery = document.querySelector<HTMLElement>('[data-gallery]');
-  const deferred = gallery?.querySelectorAll<HTMLImageElement>('img[data-gallery-src]');
-  const loadPreview = (preview: HTMLImageElement) => {
-    const { gallerySrc, gallerySrcset } = preview.dataset;
-    if (gallerySrcset) preview.srcset = gallerySrcset;
-    if (gallerySrc) preview.src = gallerySrc;
-  };
-  if (deferred?.length) {
-    const observer = new IntersectionObserver((entries) => {
-      for (const { target, isIntersecting } of entries) {
-        if (!isIntersecting) continue;
-        loadPreview(target as HTMLImageElement);
-        observer.unobserve(target);
-      }
-    }, { root: gallery?.closest('.site-scroll'), rootMargin: '300px 0px' });
-    deferred.forEach(preview => observer.observe(preview));
-  }
-  const viewer = document.querySelector<HTMLDialogElement>('#board-viewer');
-  const image = viewer?.querySelector<HTMLImageElement>('[data-board-image]');
-  const title = viewer?.querySelector<HTMLElement>('#board-title');
-  const scroll = viewer?.querySelector<HTMLElement>('.board-scroll');
-  const previous = viewer?.querySelector<HTMLButtonElement>('[data-board-prev]');
-  const next = viewer?.querySelector<HTMLButtonElement>('[data-board-next]');
-  const full = viewer?.querySelector<HTMLAnchorElement>('[data-board-full]');
-
-  if (gallery && viewer && image && title && scroll && previous && next && full) {
-    const boards = [...gallery.querySelectorAll<HTMLAnchorElement>('[data-board]')];
-    let current = 0;
-    let opener: HTMLAnchorElement | undefined;
-
-    function showBoard(index: number) {
-      const board = boards[index];
-      const preview = board?.querySelector('img');
-      if (!board || !preview) return;
-      current = index;
-      const label = board.dataset.title ?? '';
-      title.textContent = `${index + 1} / ${boards.length} · ${label}`;
-      image.alt = label;
-      image.srcset = preview.dataset.gallerySrcset ?? preview.srcset;
-      image.src = preview.dataset.gallerySrc ?? preview.src;
-      full.href = board.href;
-      previous.disabled = index === 0;
-      next.disabled = index === boards.length - 1;
-      scroll.scrollTop = 0;
-    }
-
-    boards.forEach((board, index) => {
-      board.addEventListener('click', (event) => {
-        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-        event.preventDefault();
-        opener = board;
-        showBoard(index);
-        viewer.showModal();
-      });
-    });
-    previous.addEventListener('click', () => showBoard(current - 1));
-    next.addEventListener('click', () => showBoard(current + 1));
-    viewer.addEventListener('keydown', (event) => {
-      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-      event.preventDefault();
-      showBoard(current + (event.key === 'ArrowLeft' ? -1 : 1));
-    });
-    viewer.addEventListener('close', () => {
-      image.removeAttribute('srcset');
-      image.removeAttribute('src');
-      opener?.focus({ preventScroll: true });
-    });
-  }
-</script>

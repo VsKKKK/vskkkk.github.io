@@ -1,13 +1,23 @@
 ---
 import { selectedProjects } from '../data/selected-projects';
 import ProjectCard from './ProjectCard.astro';
+import OngoingWorkCard from './OngoingWorkCard.astro';
+
+const summaries: Record<string, string> = {
+  'marketgrid-cas': '企业内容运营后台，优化内容管理、页面配置与发布流程。',
+  'restaurant-management': '海外餐饮门店后台，整合菜单、点单、收银与桌台管理。',
+  'voice-changer': '移动端变声应用，梳理语音变声与趣味互动的功能入口。',
+  'green-veins': '低碳生活 App，整合碳足迹、能耗信息与节能建议。',
+  'oppo-weather': '天气 App 首页改版，重排信息层级，方便快速查看天气。',
+};
 
 ---
 {selectedProjects.length > 0 && (
   <section class="site-shell home-works" id="works" aria-labelledby="works-title">
     <h2 class="visually-hidden" id="works-title">Selected Works</h2>
     <div class="home-works-grid">
-      {selectedProjects.map((project, index) => <ProjectCard project={project} eager={index === 0} />)}
+      {selectedProjects.map((project, index) => <ProjectCard project={project} eager={index === 0} summary={summaries[project.slug]} />)}
+      <OngoingWorkCard summary="海外语音社交、电商独立站及企业官网改版，持续整理中。" />
     </div>
   </section>
 )}

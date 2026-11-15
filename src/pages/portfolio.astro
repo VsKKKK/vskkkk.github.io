@@ -1,0 +1,84 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ProjectGallery from '../components/ProjectGallery.astro';
+import projectData from '../data/projects.json';
+const { projects } = projectData;
+
+const title = '2026 UI/UX 综合作品集';
+const description = '收录三个不同业务场景下的产品设计项目，涵盖企业级内容运营平台、海外餐饮管理系统与移动端娱乐产品，展示我在业务梳理、信息架构、交互体验与视觉设计方面的实践。';
+const tags = ['B端产品', 'Web 后台', 'Mobile App', 'UI/UX Design'];
+const portfolioProjects = ['marketgrid-cas', 'restaurant-management', 'voice-changer'].map((slug) => {
+  const project = projects.find((entry) => entry.slug === slug);
+  if (!project) throw new Error(`Missing portfolio project: ${slug}`);
+  return project;
+});
+const sizes = '(max-width: 640px) calc(100vw - 28px), (max-width: 1148px) calc(100vw - 48px), 1100px';
+---
+<SiteLayout description={description}>
+  <a class="button-pill floating-glass portfolio-back" href="/" data-portfolio-back>
+    <span aria-hidden="true">←</span> 返回首页
+  </a>
+
+  <article class="site-shell detail-page portfolio">
+    <img class="portfolio-art" src="/portfolio-art/cover-800.jpg"
+      srcset="/portfolio-art/cover-800.jpg 800w, /portfolio-art/cover-1200.webp 1200w, /portfolio-art/cover-1821.jpg 1821w" sizes={sizes}
+      width="1821" height="2048" alt="作品集封面与 Keyin.li 的个人介绍" fetchpriority="high" decoding="async" />
+
+    <header class="portfolio-intro">
+      <h1>{title}</h1>
+      <p class="portfolio-subtitle">聚焦企业级产品与移动端体验设计</p>
+      <p class="detail-description">{description}</p>
+      <ul class="detail-tags" aria-label="作品集主题" role="list">
+        {tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+    </header>
+
+    {portfolioProjects.map((project) => (
+      <section aria-label={project.title}>
+        <ProjectGallery images={project.images} eagerFirst={false} />
+      </section>
+    ))}
+
+    <img class="portfolio-art" src="/portfolio-art/thanks-2048.jpg"
+      srcset="/portfolio-art/thanks-800.jpg 800w, /portfolio-art/thanks-2048.jpg 2048w" sizes={sizes}
+      width="2048" height="1155" alt="THANKS，感谢你看到这里" loading="lazy" decoding="async" />
+  </article>
+</SiteLayout>
+
+<script>
+  const back = document.querySelector<HTMLAnchorElement>('[data-portfolio-back]');
+  back?.addEventListener('click', (event) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (!document.referrer || history.length < 2) return;
+    const previous = new URL(document.referrer);
+    if (previous.origin !== location.origin || previous.pathname !== '/') return;
+    event.preventDefault();
+    history.back();
+  });
+</script>
+
+<style>
+  .portfolio { min-width: 0; }
+  .portfolio-back {
+    position: fixed;
+    z-index: 10;
+    inset: calc(env(safe-area-inset-top) + 52px) auto auto var(--gutter);
+    gap: 6px;
+    background: rgb(255 255 255 / 82%);
+  }
+  .portfolio-intro { padding-block: clamp(28px, 5vw, 56px); }
+  .portfolio h1 { font-size: var(--detail-title-size); font-weight: 400; line-height: 1.07; letter-spacing: -.04em; }
+  .portfolio-subtitle { margin-top: 14px; font-size: clamp(18px, 2vw, 24px); }
+  .portfolio-art { display: block; width: 100%; height: auto; }
+  .portfolio :global(.project-gallery) { gap: 0; }
+  .portfolio :global(.project-gallery img) { background: transparent; }
+
+  @media (max-width: 640px) {
+    .portfolio-back { top: calc(max(14px, env(safe-area-inset-top)) + 38px); }
+    .portfolio { padding-top: 54px; }
+  }
+
+  @media (min-width: 1440px) {
+    .portfolio-back { top: max(24px, env(safe-area-inset-top)); }
+  }
+</style>

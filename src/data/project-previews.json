@@ -1,0 +1,601 @@
+{
+  "/projects/marketgrid-cas/cover-1440.webp": [
+    {
+      "src": "/projects/previews/marketgrid-cas/cover-1440-400.webp",
+      "width": 400
+    },
+    {
+      "src": "/projects/marketgrid-cas/cover-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/marketgrid-cas/cover-1440.webp",
+      "width": 1440
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-01.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-01-400.webp",
+      "width": 400
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-01-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-01-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-01-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-02.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-02-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-02-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-02-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-03.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-03-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-03-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-03-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-04.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-04-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-04-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-04-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-05.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-05-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-05-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-05-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-06.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-06-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-06-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-06-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-07.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-07-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-07-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-07-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-08.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-08-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-08-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-08-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/restaurant-management/restaurant-management-09.webp": [
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-09-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-09-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/restaurant-management/restaurant-management-09-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/voice-changer/voice-changer-cover.webp": [
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-cover-400.webp",
+      "width": 400
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-cover-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-cover-1440.webp",
+      "width": 1440
+    }
+  ],
+  "/projects/voice-changer/voice-changer-01.webp": [
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-01-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-01-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-01-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/voice-changer/voice-changer-02.webp": [
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-02-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-02-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-02-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/voice-changer/voice-changer-03.webp": [
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-03-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-03-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-03-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/voice-changer/voice-changer-04.webp": [
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-04-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-04-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-04-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/voice-changer/voice-changer-05.webp": [
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-05-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-05-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-05-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/voice-changer/voice-changer-06.webp": [
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-06-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-06-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-06-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/voice-changer/voice-changer-07.webp": [
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-07-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-07-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/voice-changer/voice-changer-07-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/green-veins/green-veins-01.webp": [
+    {
+      "src": "/projects/previews/green-veins/green-veins-01-400.webp",
+      "width": 400
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-01-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-01-1200.webp",
+      "width": 1200,
+      "galleryOnly": true
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-01-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-01-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/green-veins/green-veins-02.webp": [
+    {
+      "src": "/projects/previews/green-veins/green-veins-02-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-02-1200.webp",
+      "width": 1200
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-02-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-02-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/green-veins/green-veins-03.webp": [
+    {
+      "src": "/projects/previews/green-veins/green-veins-03-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-03-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-03-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/green-veins/green-veins-04.webp": [
+    {
+      "src": "/projects/previews/green-veins/green-veins-04-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-04-1200.webp",
+      "width": 1200
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-04-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-04-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/green-veins/green-veins-05.webp": [
+    {
+      "src": "/projects/previews/green-veins/green-veins-05-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-05-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-05-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/green-veins/green-veins-06.webp": [
+    {
+      "src": "/projects/previews/green-veins/green-veins-06-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-06-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/green-veins/green-veins-06-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/oppo-weather/cover.png": [
+    {
+      "src": "/projects/previews/oppo-weather/cover-400.webp",
+      "width": 400
+    },
+    {
+      "src": "/projects/previews/oppo-weather/cover-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/cover-1440.webp",
+      "width": 1440
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-01.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-01-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-01-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-02.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-02-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-02-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-03.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-03-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-03-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-04.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-04-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-04-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-05.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-05-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-05-1200.webp",
+      "width": 1200
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-05-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-06.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-06-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-06-1200.webp",
+      "width": 1200
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-06-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-07.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-07-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-07-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-08.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-08-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-08-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/projects/oppo-weather/oppo-weather-09.webp": [
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-09-800.webp",
+      "width": 800
+    },
+    {
+      "src": "/projects/previews/oppo-weather/oppo-weather-09-1200.webp",
+      "width": 1200
+    }
+  ],
+  "/projects/marketgrid-cas/boards/02-project-introduction-and-context-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/02-project-introduction-and-context-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/02-project-introduction-and-context-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/marketgrid-cas/boards/03-system-architecture-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/03-system-architecture-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/03-system-architecture-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/marketgrid-cas/boards/04-design-direction-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/04-design-direction-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/04-design-direction-2200.webp",
+      "width": 2200
+    }
+  ],
+  "/projects/marketgrid-cas/boards/06-interface-framework-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/06-interface-framework-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/06-interface-framework-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/07-information-hierarchy-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/07-information-hierarchy-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/07-information-hierarchy-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/08-page-patterns-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/08-page-patterns-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/08-page-patterns-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/09-components-and-status-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/09-components-and-status-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/09-components-and-status-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/11-operation-workbench-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/11-operation-workbench-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/11-operation-workbench-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/12-recommendation-areas-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/12-recommendation-areas-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/12-recommendation-areas-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/13-recommendation-composition-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/13-recommendation-composition-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/13-recommendation-composition-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/14-notification-scheduling-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/14-notification-scheduling-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/14-notification-scheduling-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/15-notification-configuration-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/15-notification-configuration-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/15-notification-configuration-2560.webp",
+      "width": 2560
+    }
+  ],
+  "/projects/marketgrid-cas/boards/16-page-overview-1440.webp": [
+    {
+      "src": "/projects/marketgrid-cas/boards/16-page-overview-1440.webp",
+      "width": 1440
+    },
+    {
+      "src": "/projects/previews/marketgrid-cas/boards/16-page-overview-2200.webp",
+      "width": 2200
+    }
+  ]
+}

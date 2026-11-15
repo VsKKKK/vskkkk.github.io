@@ -1,10 +1,12 @@
 ---
+import { Image } from 'astro:assets';
+import portrait from '../assets/keyin-portrait.jpg';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { resume } from '../data/resume';
 import { site } from '../data/site';
 ---
 
-<SiteLayout title={`简历 · ${resume.name}`}>
+<SiteLayout>
   <div class="site-shell resume">
     <div class="resume-actions">
       <a class="text-link" href="/about/">返回 About</a>
@@ -18,11 +20,13 @@ import { site } from '../data/site';
           <h1>{resume.name}</h1>
           <p class="resume-role">{resume.role}</p>
           <p class="resume-focus">{resume.focus}</p>
+          <div class="resume-contact">
+            <p>{resume.location} <span aria-hidden="true">·</span> {resume.experience}</p>
+            <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
         </div>
-        <div class="resume-contact">
-          <p>{resume.location} <span aria-hidden="true">·</span> {resume.experience}</p>
-          <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a>
-        </div>
+        <Image src={portrait} alt="李可茵的个人照片" class="resume-portrait"
+          width={420} format="webp" quality={90} loading="eager" />
       </header>
 
       <section aria-labelledby="strengths-title">
@@ -89,8 +93,13 @@ import { site } from '../data/site';
       <section aria-labelledby="skills-title">
         <h2 id="skills-title"><span aria-hidden="true">06</span> 工作技能</h2>
         <dl class="resume-facts">
-          {resume.skills.map(({ title, detail }) => (
-            <div><dt>{title}</dt><dd>{detail}</dd></div>
+          {resume.skills.map(({ title, items }) => (
+            <div>
+              <dt>{title}</dt>
+              <dd>{items.map((item, index) => (
+                <><span class="resume-skill">{item}{index < items.length - 1 ? '、' : ''}</span><wbr /></>
+              ))}</dd>
+            </div>
           ))}
         </dl>
       </section>
@@ -120,8 +129,8 @@ import { site } from '../data/site';
   .resume-profile {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
-    gap: 14px 32px;
+    align-items: center;
+    gap: 22px 48px;
     padding-block: clamp(42px, 6vw, 80px);
   }
   .resume-focus { max-width: 42em; margin-top: 9px; }
@@ -130,8 +139,17 @@ import { site } from '../data/site';
   .resume-profile-label span, .resume h2 span { margin-right: 8px; color: var(--accent); }
   .resume h1 { font-size: clamp(44px, 6vw, 76px); line-height: 1.1; letter-spacing: -.05em; }
   .resume-role { margin-top: 10px; font-size: 20px; font-weight: 650; }
-  .resume-contact { text-align: end; }
-  .resume-contact a { color: var(--accent); }
+  .resume-portrait {
+    display: block;
+    width: clamp(180px, 14vw, 196px);
+    height: auto;
+    aspect-ratio: 3 / 4;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+  }
+  .resume-contact { margin-top: 18px; }
+  .resume-contact a { color: inherit; }
   .resume-focus, .resume-contact, .resume-facts dd, .resume-entry-meta, .resume-project-context, .resume-research p {
     color: var(--text-secondary);
   }
@@ -150,6 +168,7 @@ import { site } from '../data/site';
   .resume-facts > div { display: grid; grid-template-columns: minmax(0, 10em) minmax(0, 1fr); gap: 3px 12px; }
   .resume-facts dt { font-weight: 600; }
   .resume-facts dd { margin: 0; }
+  .resume-skill { white-space: nowrap; }
   .resume-timeline, .resume-research { list-style: none; margin: 0; padding: 0; }
   .resume-timeline { margin-left: 4px; padding-left: 18px; border-left: 1px solid var(--accent); }
   .resume-timeline > li { position: relative; }
@@ -189,7 +208,7 @@ import { site } from '../data/site';
   @media screen and (max-width: 640px) {
     .resume { padding-block: 18px 36px; font-size: 15px; }
     .resume-profile { grid-template-columns: minmax(0, 1fr); padding-block: 32px; }
-    .resume-contact { text-align: start; }
+    .resume-portrait { width: 128px; }
     .resume-facts > div { grid-template-columns: minmax(0, 1fr); }
     .resume-entry { display: block; }
     .resume-entry-meta { display: flex; flex-wrap: wrap; margin-top: 3px; text-align: start; font-size: 13px; }
@@ -208,8 +227,17 @@ import { site } from '../data/site';
       padding: 11mm 13mm 10mm;
       break-inside: avoid;
     }
+    .resume-actions + .resume-print-page { gap: 2.5mm; }
     .resume-print-page + .resume-print-page { break-before: page; }
-    .resume-profile { padding: 0; gap: 5mm; }
+    .resume-profile { padding: 0; gap: 6mm; break-inside: avoid; }
+    .resume-portrait { width: 34mm; border-radius: 2mm; }
+    .resume-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 4mm;
+      margin-top: 2mm;
+      font-size: 9.5pt;
+    }
     .resume-focus { margin-top: 1mm; }
     .resume-profile-label { margin-bottom: 1.5mm; }
     .resume h1 { font-size: 26pt; }

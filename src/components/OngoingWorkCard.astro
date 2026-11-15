@@ -1,0 +1,139 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import { ongoingCovers, ongoingProject } from '../data/ongoing-works';
+const { summary, sizes = '(max-width: 640px) calc(100vw - 38px), (max-width: 1148px) calc(50vw - 46px), 528px' } = Astro.props;
+---
+<div class="ongoing-card" data-ongoing-card>
+  <ProjectCard project={ongoingProject} summary={summary}>
+    <div slot="media" class="ongoing-media project-card-media" data-ongoing-media>
+      {ongoingCovers.map(({name, src, srcset}, index) => (
+        <div class="ongoing-slide" hidden={index !== 0}>
+          <img src={src} srcset={srcset} sizes={sizes} width="1440" height="810"
+            alt={name} loading="lazy" decoding="async" draggable="false" />
+        </div>
+      ))}
+    </div>
+    <div slot="controls" class="ongoing-controls" role="group" aria-label="预告封面切换" hidden>
+      <button class="ongoing-arrow" type="button" data-step="-1" aria-label="上一张封面">←</button>
+      <div class="ongoing-dots">
+        {ongoingCovers.map(({name}, index) => (
+          <button type="button" data-slide={index} aria-pressed={index === 0} aria-label={`显示 ${name}`}><span></span></button>
+        ))}
+      </div>
+      <button class="ongoing-arrow" type="button" data-step="1" aria-label="下一张封面">→</button>
+      <span class="visually-hidden" role="status"></span>
+    </div>
+  </ProjectCard>
+</div>
+
+<script>
+  const card = document.querySelector('[data-ongoing-card]');
+  const media = card?.querySelector<HTMLElement>('[data-ongoing-media]');
+  const controls = card?.querySelector<HTMLElement>('.ongoing-controls');
+  const link = card?.querySelector('a');
+  const scroll = document.querySelector<HTMLElement>('.site-scroll');
+
+  if (media && controls && link && scroll) {
+    const slides = [...media.querySelectorAll<HTMLElement>('.ongoing-slide')];
+    const dots = [...controls.querySelectorAll<HTMLButtonElement>('[data-slide]')];
+    const status = controls.querySelector('[role="status"]');
+    let current = 0;
+    let touch: { x: number; y: number } | undefined;
+    let swipedAt = -Infinity;
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => { slide.hidden = i !== current; });
+      dots.forEach((dot, i) => { dot.setAttribute('aria-pressed', String(i === current)); });
+      if (status) status.textContent = slides[current].querySelector('img')?.alt ?? '';
+    };
+
+    controls.hidden = false;
+    controls.querySelectorAll<HTMLButtonElement>('[data-step]').forEach(button => {
+      button.addEventListener('click', () => show(current + Number(button.dataset.step)));
+    });
+    dots.forEach((dot, index) => dot.addEventListener('click', () => show(index)));
+    media.addEventListener('touchstart', event => {
+      const point = event.touches[0];
+      touch = event.touches.length === 1 ? { x: point.clientX, y: point.clientY } : undefined;
+      swipedAt = -Infinity;
+    }, { passive: true });
+    media.addEventListener('touchcancel', () => { touch = undefined; }, { passive: true });
+    media.addEventListener('touchend', event => {
+      if (!touch) return;
+      const point = event.changedTouches[0];
+      const dx = point.clientX - touch.x;
+      const dy = point.clientY - touch.y;
+      touch = undefined;
+      if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy)) return;
+      swipedAt = performance.now();
+      show(current + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+
+    link.addEventListener('click', event => {
+      if (event.detail > 0 && event.target instanceof Node && media.contains(event.target) && performance.now() - swipedAt < 450) {
+        event.preventDefault();
+        return;
+      }
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      history.replaceState({ ...history.state, ongoingReturnScroll: scroll.scrollTop, ongoingSlide: current }, '');
+    });
+    window.addEventListener('pageshow', event => {
+      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+      if (!event.persisted && navigation?.type !== 'back_forward') return;
+      const { ongoingReturnScroll, ongoingSlide } = history.state ?? {};
+      if (typeof ongoingReturnScroll !== 'number') return;
+      if (typeof ongoingSlide === 'number') show(ongoingSlide);
+      requestAnimationFrame(() => scroll.scrollTo({ top: ongoingReturnScroll, behavior: 'instant' }));
+    });
+  }
+</script>
+
+<style>
+  .ongoing-card { position: relative; min-width: 0; }
+  .ongoing-media { touch-action: pan-y pinch-zoom; }
+  .ongoing-controls {
+    position: absolute;
+    inset: 5px 5px auto;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    pointer-events: none;
+  }
+  .ongoing-controls[hidden], .ongoing-slide[hidden] { display: none; }
+  .ongoing-controls button { pointer-events: auto; }
+  .ongoing-arrow::before, .ongoing-dots {
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: rgb(255 255 255 / 92%);
+  }
+  .ongoing-arrow {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    width: var(--control-size);
+    height: var(--control-size);
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--text);
+    font-size: 15px;
+  }
+  .ongoing-arrow::before { content: ''; position: absolute; inset: 4.5px; z-index: -1; }
+  .ongoing-dots { position: absolute; bottom: 8px; left: 50%; display: flex; transform: translateX(-50%); }
+  .ongoing-dots button {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: transparent;
+  }
+  .ongoing-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--text-secondary); }
+  .ongoing-dots [aria-pressed="true"] span { background: var(--text); transform: scale(1.35); }
+</style>

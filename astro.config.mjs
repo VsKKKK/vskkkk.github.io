@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'https://vskkkk.github.io',
+  integrations: [react()],
   output: 'static',
   trailingSlash: 'always',
   redirects: { '/work': '/#works' },

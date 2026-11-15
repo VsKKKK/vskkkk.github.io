@@ -80,3 +80,9 @@ const onAbout = Astro.url.pathname === '/about/';
     }
   }
 </script>
+
+<style>
+  @media (max-width: 480px) {
+    .site-dock > a, .site-dock > [data-contact-trigger] { min-width: 64px; }
+  }
+</style>

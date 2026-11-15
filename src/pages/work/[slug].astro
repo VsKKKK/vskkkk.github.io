@@ -1,11 +1,12 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import ProjectHeading from '../../components/ProjectHeading.astro';
 import ProjectGallery from '../../components/ProjectGallery.astro';
-import projects from '../../data/projects.json';
+import projectData from '../../data/projects.json';
 import { selectedProjects } from '../../data/selected-projects';
 
 export function getStaticPaths() {
-  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+  return projectData.projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
 }
 
 const { project } = Astro.props;
@@ -15,120 +16,46 @@ const total = String(selectedProjects.length).padStart(2, '0');
 const adjacent = [
   { project: selectedProjects[index - 1], direction: 'prev', label: '上一个项目', arrow: '←' },
   { project: selectedProjects[index + 1], direction: 'next', label: '下一个项目', arrow: '→' },
-].filter(({ project }) => index >= 0 && project);
+];
 
 ---
-<SiteLayout title={project.title} description={project.description}>
+<SiteLayout description={project.description}>
   <article class="site-shell detail-page">
     <nav class="project-nav-top" aria-label="项目快捷导航">
-      <a class="detail-back" href="/#works">← 返回全部作品</a>
+      <a class="button-pill detail-back" href="/#works">返回</a>
       {index >= 0 && (
         <div class="project-nav-controls">
           <span class="project-nav-index" aria-label={`第 ${index + 1} 个项目，共 ${selectedProjects.length} 个`}>{position} / {total}</span>
-          {adjacent.map(({ project, direction, label, arrow }) => (
-            <a href={`/work/${project.slug}/`} rel={direction} aria-label={`${label}：${project.title}`} title={`${label}：${project.title}`}>{arrow}</a>
+          {adjacent.map(({ project, direction, label, arrow }) => project ? (
+            <a class="button-pill button-icon project-nav-arrow" href={`/work/${project.slug}/`} rel={direction} aria-label={`${label}：${project.title}`}>{arrow}</a>
+          ) : direction === 'next' ? (
+            <a class="button-pill button-icon project-nav-arrow" href="/work/ongoing/" aria-label="浏览更多作品">→</a>
+          ) : (
+            <button class="button-pill button-icon project-nav-arrow" type="button" aria-label={label} disabled>{arrow}</button>
           ))}
         </div>
       )}
     </nav>
-    <header class="detail-heading">
-      <h1>{project.title}</h1>
-      <p class="detail-description">{project.description}</p>
-      <p class="detail-meta">{[project.year, project.type, project.platform].filter(Boolean).join(" · ")}</p>
-      <ul class="detail-tags" aria-label="项目主题" role="list">{project.tags.map((tag) => <li>{tag}</li>)}</ul>
-    </header>
+    <ProjectHeading project={project} />
     <ProjectGallery images={project.images} />
     <div class="detail-end">
       <a class="button-pill" href="/#works">返回全部作品</a>
       <a class="button-pill" href="#top">回到顶部 <span aria-hidden="true">↑</span></a>
     </div>
-    {adjacent.length > 0 && (
-      <nav class="project-nav-preview" aria-label="相邻项目预览">
-        {adjacent.map(({ project, direction, label, arrow }) => (
-          <a class="project-preview-card" href={`/work/${project.slug}/`} rel={direction}>
-            <img src={project.cover.src}
-              srcset={project.cover.srcset}
-              sizes="(max-width: 640px) calc((100vw - 48px) / 3), (max-width: 1148px) calc(50vw - 46px), 528px"
-              width={project.cover.width} height={project.cover.height} loading="lazy" decoding="async" alt="" />
-            <div class="project-preview-caption">
-              <p class="project-preview-direction">{arrow} {label}</p>
-              <h2>{project.title}</h2>
-              <p class="project-preview-category">{project.type ?? project.tags[0] ?? project.platform}</p>
-            </div>
-          </a>
-        ))}
-      </nav>
-    )}
   </article>
 </SiteLayout>
 
 <style>
-  .project-nav-top, .project-nav-controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 4px 12px;
-  }
-  .project-nav-top { justify-content: space-between; }
-  .project-nav-top a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    font-size: 14px;
-    text-decoration: none;
-  }
+  .detail-page { min-width: 0; padding-block-end: clamp(36px, 4vw, 56px); }
+  .project-nav-top, .project-nav-controls { display: flex; align-items: center; }
+  .project-nav-top { justify-content: space-between; gap: 8px; }
+  .project-nav-controls { gap: 8px; }
   .project-nav-index {
     color: var(--text-secondary);
     font-size: 13px;
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
   }
-  .project-nav-controls a {
-    justify-content: center;
-    min-width: 44px;
-    background: var(--surface-card);
-    border-radius: var(--radius-pill);
-    font-size: 17px;
-  }
-  .project-nav-preview {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 38px;
-  }
-  .project-preview-card {
-    display: block;
-    padding: 5px;
-    border-radius: var(--radius-card);
-    background: var(--surface-card);
-    text-decoration: none;
-    scroll-margin-bottom: 8px;
-  }
-  .project-preview-card[rel="next"] { grid-column: 2; }
-  .project-preview-card img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-    border-radius: 10px;
-  }
-  .project-preview-caption { min-width: 0; padding: 12px 14px; }
-  .project-preview-caption h2 { font-size: 18px; font-weight: 500; overflow-wrap: anywhere; }
-  .project-preview-direction, .project-preview-category { color: var(--text-secondary); font-size: 13px; }
-  @media (hover: hover) {
-    .project-nav-top a:hover, .project-preview-card:hover h2 { text-decoration: underline; }
-  }
-  @media (max-width: 640px) {
-    .project-nav-controls { column-gap: 4px; }
-    .project-nav-preview { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-    .project-preview-card[rel] { grid-column: auto; }
-    .project-preview-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-      align-items: center;
-      gap: 10px;
-    }
-    .project-preview-caption { padding: 6px 8px 6px 0; }
-    .project-preview-caption h2 { font-size: 16px; }
-  }
+  .project-nav-arrow:disabled { opacity: .5; }
+  @media (max-width: 640px) { .project-nav-controls { gap: 4px; } }
 </style>

@@ -1,0 +1,61 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { ongoingCovers, ongoingProject } from '../../data/ongoing-works';
+
+const title = '更多作品，持续更新中';
+---
+<SiteLayout description={ongoingProject.description}>
+  <article class="site-shell detail-page">
+    <a class="button-pill detail-back" href="/#works" data-ongoing-back>返回作品</a>
+    <header class="detail-heading">
+      <p class="detail-meta eyebrow">MORE WORKS · COMING SOON</p>
+      <h1>{title}</h1>
+      <p class="detail-description">{ongoingProject.description}</p>
+    </header>
+    <ul class="project-gallery preview-grid" aria-label="项目预告封面" role="list">
+      {ongoingCovers.map(({ name, description, tag, src, srcset }, index) => (
+        <li>
+          <figure>
+            <img src={src} srcset={srcset}
+              sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 959px) calc(50vw - 37px), (max-width: 1148px) calc(33.33vw - 33.33px), 350px"
+              alt="" width="1440" height="810" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+            <figcaption>
+              <h2>{name}</h2>
+              <p>{description}</p>
+              <ul class="project-card-tags" aria-label="项目主题" role="list"><li>{tag}</li></ul>
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </article>
+</SiteLayout>
+
+<script>
+  const back = document.querySelector<HTMLAnchorElement>('[data-ongoing-back]');
+  back?.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (!document.referrer || history.length < 2) return;
+    const previous = new URL(document.referrer);
+    if (previous.origin !== location.origin || previous.pathname !== '/') return;
+    event.preventDefault();
+    history.back();
+  });
+</script>
+
+<style>
+  .eyebrow { margin: 0 0 8px; }
+  .preview-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  figure { margin: 0; }
+  figure img { aspect-ratio: 16 / 9; object-fit: contain; border-radius: var(--radius-card); }
+  figcaption { margin-top: 8px; }
+  figcaption h2 { font-size: 20px; font-weight: 500; letter-spacing: -.02em; }
+  figcaption p { margin-top: 4px; color: var(--text-secondary); }
+
+  @media (max-width: 959px) {
+    .preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .preview-grid { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>

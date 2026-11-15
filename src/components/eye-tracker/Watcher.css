@@ -1,0 +1,61 @@
+/* Copyright (c) 2026 Lorenzo Cabra. MIT License, see LICENSE. */
+.eyt {
+  width: min(100%, var(--eyt-size, 100px));
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 24%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.eyt-ball {
+  width: 100%;
+  height: auto;
+  overflow: visible;}
+
+/* the ball is the Fill's own slab and the eyes its ink: white
+   with dark eyes on a light fill, near-black with light eyes on
+   a dark one */
+.eyt-body { fill: var(--surface-card, #fff); }
+
+.eyt-eye { fill: var(--text, #0b0b0d); }
+
+.eyt-bubble {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  min-width: 46px;
+  max-width: calc(100vw - 24px);
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 12px;
+  overflow: visible;
+  background: var(--surface-card, white);
+  color: var(--text, #242424);
+  box-shadow: 0 4px 18px rgb(0 0 0 / 12%);
+  font-size: 13px;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 160ms ease, scale 160ms ease;
+}
+.eyt-bubble:popover-open { animation: eyt-bubble-in 160ms ease both; }
+.eyt-bubble[data-fading] { animation: none; opacity: 0; scale: .97; }
+.eyt-bubble::after {
+  content: '';
+  position: absolute;
+  left: var(--eyt-tail, 50%);
+  width: 8px;
+  height: 8px;
+  background: inherit;
+  transform: translateX(-50%) rotate(45deg);
+}
+.eyt-bubble[data-side='above']::after { bottom: -4px; }
+.eyt-bubble[data-side='below']::after { top: -4px; }
+@keyframes eyt-bubble-in { from { opacity: 0; scale: .97; } }
+@media (prefers-reduced-motion: reduce) {
+  .eyt-bubble:popover-open { animation: none; transition: none; }
+}
+

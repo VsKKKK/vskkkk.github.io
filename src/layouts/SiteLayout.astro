@@ -1,12 +1,14 @@
 ---
+import BackToTop from '../components/BackToTop.astro';
 import SiteDock from '../components/SiteDock.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
+import Preloader from '../components/Preloader.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
 
-interface Props { title?: string; description?: string }
-const { title, description } = Astro.props;
+interface Props { description?: string }
+const { description } = Astro.props;
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -14,16 +16,18 @@ const { title, description } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     {description && <meta name="description" content={description} />}
-    <title>{title ? `${title} | ${site.name}` : site.name}</title>
+    <title>{site.title}</title>
   </head>
   <body>
+    <Preloader />
     <a class="skip-link" href="#main">跳到正文</a>
     <SiteDock />
     <div class="site-scroll" tabindex="0" role="region" aria-label="页面内容">
-      <header class="site-brand site-shell" id="top"><span>{site.name}</span></header>
+      <header class="site-brand site-shell" id="top"><a href="/">{site.name}</a></header>
       <main id="main" tabindex="-1"><slot /></main>
       <Footer />
     </div>
+    <BackToTop />
     <ContactModal />
   </body>
 </html>

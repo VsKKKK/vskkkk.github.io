@@ -1,0 +1,16 @@
+{
+  "name": "keyin-404-feedback",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-13",
+  "vars": {
+    "ALLOWED_ORIGINS": "https://vskkkk.github.io"
+  },
+  "d1_databases": [
+    {
+      "binding": "REPORTS",
+      "database_name": "keyin-404-reports",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

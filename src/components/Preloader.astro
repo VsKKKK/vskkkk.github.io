@@ -1,0 +1,117 @@
+---
+import { site } from '../data/site';
+---
+
+<style is:inline>
+  .brand-intro {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    place-items: center;
+    background: var(--surface-page, #f1f1f1);
+    pointer-events: none;
+  }
+  .brand-intro[data-playing] {
+    display: grid;
+    animation: keyin-intro-exit 300ms ease 1100ms both;
+  }
+  .brand-intro svg {
+    display: block;
+    width: min(72vw, 360px);
+    height: auto;
+    overflow: visible;
+    font: 650 73px var(--font, Arial, sans-serif);
+    letter-spacing: -.05em;
+  }
+  .brand-intro-ink {
+    fill: var(--text, #242424);
+    fill-opacity: .08;
+  }
+  .brand-intro-line {
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 30 190;
+  }
+  .brand-intro[data-playing] .brand-intro-line {
+    animation: keyin-intro-trace 1050ms ease-in-out infinite, keyin-intro-flow 1050ms linear infinite;
+  }
+  .brand-intro[data-playing] .brand-intro-ink { animation: keyin-intro-ink 1050ms ease both; }
+  .brand-intro[data-playing] stop { animation: keyin-intro-color 1050ms linear infinite; }
+  @keyframes keyin-intro-trace {
+    0%, 100% { stroke-dasharray: 32 188; }
+    56%, 75% { stroke-dasharray: 207 13; }
+  }
+  @keyframes keyin-intro-flow { to { stroke-dashoffset: -220; } }
+  @keyframes keyin-intro-ink {
+    55% { fill-opacity: .1; }
+    90%, 100% { fill-opacity: .92; }
+  }
+  @keyframes keyin-intro-color {
+    0%, 100% { stop-color: var(--first); }
+    33.333% { stop-color: var(--second); }
+    66.667% { stop-color: var(--third); }
+  }
+  @keyframes keyin-intro-exit { to { opacity: 0; visibility: hidden; } }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-intro[data-playing] { animation: none; }
+    .brand-intro[data-playing] :is(.brand-intro-line, .brand-intro-ink, stop) { animation: none; }
+    .brand-intro-line { stroke-dasharray: none; }
+    .brand-intro-ink { fill-opacity: 1; }
+  }
+</style>
+
+<!-- Animation adapted from SelfMadeSystem's Uiverse loader. See UIVERSE-LOADER-LICENSE. -->
+<div class="brand-intro" id="keyin-brand-intro" aria-hidden="true">
+  <svg viewBox="0 0 360 108" width="360" height="108" focusable="false">
+    <defs>
+      <linearGradient id="keyin-intro-gradient" x1="0" y1="0" x2="1" y2=".65">
+        <stop offset="0" stop-color="#665dcc" style="--first:#665dcc;--second:#b35f97;--third:#318b9d" />
+        <stop offset=".5" stop-color="#b35f97" style="--first:#b35f97;--second:#318b9d;--third:#665dcc" />
+        <stop offset="1" stop-color="#318b9d" style="--first:#318b9d;--second:#665dcc;--third:#b35f97" />
+      </linearGradient>
+      <text id="keyin-intro-wordmark" x="180" y="54" dy=".34em" text-anchor="middle">{site.name}</text>
+    </defs>
+    <use href="#keyin-intro-wordmark" class="brand-intro-ink" />
+    <use href="#keyin-intro-wordmark" class="brand-intro-line" stroke="url(#keyin-intro-gradient)" />
+  </svg>
+</div>
+
+<script is:inline>
+  (() => {
+    const intro = document.getElementById('keyin-brand-intro');
+    if (!intro) return;
+
+    const preview = new URLSearchParams(window.location.search).get('intro') === 'preview';
+    if (!preview) {
+      try {
+        const key = 'keyin_intro_seen_v1';
+        if (localStorage.getItem(key)) {
+          intro.remove();
+          return;
+        }
+        localStorage.setItem(key, '1');
+      } catch {
+        // Skip the intro when the visit cannot be remembered.
+        intro.remove();
+        return;
+      }
+    }
+
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const timeout = window.setTimeout(finish, reducedMotion ? 240 : 1750);
+    function finish() {
+      clearTimeout(timeout);
+      window.removeEventListener('pagehide', finish);
+      intro.remove();
+    }
+
+    intro.addEventListener('animationend', event => {
+      if (event.target === intro && event.animationName === 'keyin-intro-exit') finish();
+    });
+    window.addEventListener('pagehide', finish, { once: true });
+    intro.setAttribute('data-playing', '');
+  })();
+</script>

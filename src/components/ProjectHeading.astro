@@ -1,0 +1,29 @@
+---
+interface Props {
+  project: {
+    title: string;
+    description: string;
+    year: string;
+    type: string;
+    platform: string;
+    tags: string[];
+  };
+  level?: 'h1' | 'h2';
+}
+const { project, level: Title = 'h1' } = Astro.props;
+---
+<header class="detail-heading">
+  <Title>{project.title}</Title>
+  <p class="detail-description">{project.description}</p>
+  <p class="detail-meta">{[project.year, project.type, project.platform].filter(Boolean).join(' · ')}</p>
+  <ul class="detail-tags" aria-label="项目主题" role="list">{project.tags.map((tag) => <li>{tag}</li>)}</ul>
+</header>
+
+<style>
+  .detail-heading h2 {
+    font-size: var(--detail-title-size);
+    font-weight: 400;
+    line-height: 1.07;
+    letter-spacing: -.04em;
+  }
+</style>

@@ -1,24 +1,49 @@
 ---
 import { site } from '../data/site';
+import CopyButton from './CopyButton.astro';
 ---
-<dialog class="contact-modal" id="contact-modal" aria-labelledby="contact-title">
+<dialog class="contact-modal" id="contact-modal" aria-labelledby="contact-title" aria-describedby="contact-description">
   <div class="contact-heading">
-    <h2 id="contact-title">{site.name} <span>｜ UX/UI 设计师</span></h2>
+    <h2 id="contact-title">Contact / 保持联系</h2>
     <form method="dialog">
       <button class="contact-close" type="submit" aria-label="关闭联系面板" autofocus>×</button>
     </form>
   </div>
-  <a class="contact-email" href={`mailto:${site.email}`}>
-    <span aria-hidden="true">✉</span>{site.email}
-  </a>
+  <p id="contact-description">如果你对我的作品、项目经历或合作机会感兴趣，欢迎通过以下方式联系我。</p>
+  <div class="contact-methods">
+    <section class="contact-email" aria-labelledby="contact-email-title">
+      <h3 id="contact-email-title">Email</h3>
+      <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a>
+      <p>适合商务沟通、正式合作与作品集交流。</p>
+      <div class="contact-copy">
+        <CopyButton class="button-pill" label="复制邮箱" text={site.email} successMessage="邮箱已复制" errorMessage="无法自动复制，请选中邮箱地址手动复制。" />
+      </div>
+    </section>
+    <section class="contact-wechat" aria-labelledby="contact-wechat-title">
+      <h3 id="contact-wechat-title">WeChat</h3>
+      <figure>
+        <img src={site.wechatQr} width="665" height="665" alt="微信联系二维码" loading="lazy" />
+        <figcaption>扫码添加微信好友。</figcaption>
+      </figure>
+      <p>如二维码失效，欢迎优先通过邮箱联系我。</p>
+    </section>
+  </div>
 </dialog>
 
 <script>
   const dialog = document.querySelector<HTMLDialogElement>('#contact-modal');
 
   if (dialog) {
+    let opener: HTMLButtonElement | undefined;
+
     document.querySelectorAll<HTMLButtonElement>('[data-contact-trigger]').forEach((button) => {
-      button.addEventListener('click', () => dialog.showModal());
+      button.addEventListener('click', () => {
+        opener = button;
+        dialog.showModal();
+      });
+    });
+    dialog.addEventListener('close', () => {
+      opener?.focus({ preventScroll: true });
     });
     dialog.addEventListener('click', (event) => {
       if (event.target !== dialog) return;
@@ -29,3 +54,51 @@ import { site } from '../data/site';
     });
   }
 </script>
+
+<style>
+  .contact-modal {
+    position: fixed;
+    inset: 0;
+    width: min(680px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    margin: auto;
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: clamp(20px, 5vw, 36px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface-card);
+    color: var(--text);
+  }
+  .contact-modal::backdrop { background: rgb(0 0 0 / 45%); }
+  .contact-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .contact-heading h2 { font-size: clamp(20px, 4vw, 28px); line-height: 1.25; font-weight: 650; }
+  .contact-heading .contact-close { width: var(--control-size); height: var(--control-size); }
+  #contact-description, section p, figcaption { color: var(--text-secondary); font-size: 14px; }
+  #contact-description { margin-top: 6px; }
+  .contact-methods {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  section { min-width: 0; }
+  h3 { margin-bottom: 10px; font-size: 17px; font-weight: 650; }
+  .contact-email { padding-right: 24px; }
+  .contact-email a { font-size: 16px; font-weight: 550; overflow-wrap: anywhere; }
+  .contact-email > p { margin-top: 8px; }
+  .contact-copy { margin-top: 16px; }
+  .contact-copy button { min-height: var(--control-size); border-color: var(--line); }
+  .contact-copy button:hover { background: var(--surface-page); }
+  .contact-wechat { padding-left: 24px; border-left: 1px solid var(--line); }
+  figure { margin: 0; }
+  img { display: block; width: min(132px, 100%); height: auto; }
+  figcaption { margin-top: 6px; }
+  .contact-wechat > p { margin-top: 6px; }
+  @media (max-width: 580px) {
+    .contact-methods { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 16px; padding-top: 16px; }
+    .contact-email { padding: 0; }
+    .contact-wechat { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>

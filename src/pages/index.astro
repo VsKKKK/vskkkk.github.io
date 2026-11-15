@@ -1,44 +1,44 @@
 ---
+import { site } from '../data/site';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import SelectedWorks from '../components/SelectedWorks.astro';
-import BackToTop from '../components/BackToTop.astro';
+import { Watcher } from '../components/eye-tracker/Watcher';
 import '../styles/home.css';
 
 const skills = [
-  { title: 'Product Thinking', icon: '◎', text: '从业务角色与任务出发，梳理需求、流程和设计优先级。' },
-  { title: 'UX / UI Design', icon: '↗', text: '把复杂操作拆成清楚的路径，设计界面层级、状态与反馈。' },
-  { title: 'Design Systems', icon: '▦', text: '整理组件、样式和交互规则，让设计与实现保持一致。' },
-  { title: 'AI Workflow', icon: '✦', text: '用 AI 辅助研究、素材审查和原型验证，并检查产出质量。' },
+  { title: '产品思维', icon: '◎', text: '结合业务目标与用户任务，明确需求边界和设计优先级。' },
+  { title: '用户体验与界面设计', icon: '↗', text: '梳理用户流程与信息层级，设计清晰的界面状态和操作反馈。' },
+  { title: '设计系统', icon: '▦', text: '沉淀可复用的组件、样式和交互规范，保持跨页面体验一致。' },
+  { title: 'AI 协作工作流', icon: '✦', text: '将 AI 用于研究整理、原型探索和交互验证，并复核产出质量。' },
 ];
 
 const tools = [
-  { title: 'ChatGPT', text: '梳理产品问题、组织案例材料与推敲页面文案。' },
-  { title: 'Codex', text: '搭建 Astro 页面，检查素材、交互和响应式表现。' },
-  { title: 'Figma Make', text: '搭建交互原型，验证界面结构与关键流程。' },
-];
-
-const notes = [
-  '从运营任务出发，梳理复杂后台的信息层级',
-  '组件与状态规范如何支持内容运营',
-  '同一张作品图在桌面与手机上的可读性',
+  { title: 'ChatGPT', icon: 'chatgpt', role: '产品分析 · 需求梳理 · 内容组织', text: '辅助产品问题分析、作品集内容整理及设计文案构建。' },
+  { title: 'Codex', icon: 'codex', role: '页面开发 · 代码调整 · 交互验证', text: '辅助网站开发、页面实现、响应式检查及交互细节优化。' },
+  { title: 'Figma Make', icon: 'figma', role: '原型探索 · 交互演示 · 流程验证', text: '快速构建交互原型，探索产品结构并验证关键用户流程。' },
 ];
 ---
-<SiteLayout title="Portfolio">
+<SiteLayout>
 
 
   <section class="site-shell home-hero" aria-labelledby="hero-title">
-    <h1 id="hero-title">Portfolio</h1>
-    <p>我是 Keyin，一名 UX/UI 设计师。<br />这里收录我的产品体验与界面设计作品。</p>
+    <p class="home-hero-eyebrow">{site.name} · UI/UX DESIGNER</p>
+    <h1 id="hero-title">Portfolio.</h1>
+    <p class="home-hero-statement">让复杂产品变得清晰、易用。</p>
+    <p class="home-hero-intro">我是 Keyin，一名 UI/UX 设计师，专注 B 端平台与 Web 产品体验设计，关注业务逻辑、信息架构、交互体验与视觉落地。</p>
     <div class="home-hero-actions">
+      <a class="button-pill button-primary" href="/portfolio/" data-portfolio-link>浏览综合作品集 <span aria-hidden="true">↗</span></a>
       <button class="button-pill" type="button" data-contact-trigger aria-haspopup="dialog" aria-controls="contact-modal">联系我</button>
-      <a class="button-pill button-primary" href="#works">查看作品</a>
+    </div>
+    <div class="home-hero-visual" data-eye-tracker-region>
+      <Watcher instance="home" size={180} client:visible />
     </div>
   </section>
 
   <SelectedWorks />
 
   <section class="site-shell home-section home-skills" aria-labelledby="skills-title">
-    <h2 id="skills-title">Core Skills</h2>
+    <h2 id="skills-title">核心能力</h2>
     <ul class="home-skills-grid">
       {skills.map(({ title, icon, text }) => (
         <li>
@@ -53,25 +53,40 @@ const notes = [
   </section>
 
   <section class="site-shell home-section home-tools" aria-labelledby="tools-title">
-    <h2 id="tools-title">AI Tools</h2>
+    <h2 id="tools-title">AI 工具与工作流</h2>
     <div class="home-tools-grid">
-      {tools.map(({ title, text }) => (
+      {tools.map(({ title, icon, role, text }) => (
         <article class="home-tool">
-          <h3 class="home-tool-mark">{title}</h3>
-          <p>{text}</p>
+          <div class="home-tool-heading">
+            <img src={`/tool-logos/${icon}.svg`} width="24" height="24" alt="" loading="lazy" decoding="async" />
+            <h3>{title}</h3>
+          </div>
+          <p class="home-tool-role">{role}</p>
+          <p class="home-tool-description">{text}</p>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="site-shell home-section home-notes" aria-labelledby="notes-title">
-    <h2 id="notes-title">Design Notes</h2>
-    <ol>
-      {notes.map((note, index) => (
-        <li><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><p>{note}</p></li>
-      ))}
-    </ol>
-  </section>
-
-  <BackToTop />
 </SiteLayout>
+
+<script>
+  const portfolioLink = document.querySelector<HTMLAnchorElement>('[data-portfolio-link]');
+  const scroll = document.querySelector<HTMLElement>('.site-scroll');
+
+  if (portfolioLink && scroll) {
+    portfolioLink.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      history.replaceState({ ...history.state, portfolioReturnScroll: scroll.scrollTop }, '');
+    });
+
+    window.addEventListener('pageshow', (event) => {
+      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+      if (!event.persisted && navigation?.type !== 'back_forward') return;
+      const scrollTop = history.state?.portfolioReturnScroll;
+      if (typeof scrollTop === 'number') {
+        requestAnimationFrame(() => scroll.scrollTo({ top: scrollTop, behavior: 'instant' }));
+      }
+    });
+  }
+</script>

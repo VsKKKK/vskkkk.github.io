@@ -1,4 +1,4 @@
-<button class="home-back-top floating-glass" type="button" aria-label="返回顶部" data-back-top inert>
+<button class="site-back-top floating-glass" type="button" aria-label="返回顶部" data-back-top inert>
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M12 19V5m-7 7 7-7 7 7" />
   </svg>
@@ -7,8 +7,7 @@
 <script>
   const scroll = document.querySelector<HTMLElement>('.site-scroll');
   const button = document.querySelector<HTMLButtonElement>('[data-back-top]');
-  const hero = document.querySelector<HTMLElement>('.home-hero');
-  const firstAction = hero?.querySelector<HTMLButtonElement>('.home-hero-actions button');
+  const brand = document.querySelector<HTMLAnchorElement>('.site-brand a');
 
   if (scroll && button) {
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -19,18 +18,54 @@
       button.inert = !visible;
     }
 
-    if (hero) {
-      const align = () => button.style.setProperty('--back-top-inset', `${innerWidth - hero.getBoundingClientRect().right}px`);
-      new ResizeObserver(align).observe(scroll);
-      align();
-    }
-
     scroll.addEventListener('scroll', update, { passive: true });
     window.addEventListener('pageshow', update);
     button.addEventListener('click', (event) => {
       scroll.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-      if (event.detail === 0) firstAction?.focus({ preventScroll: true });
+      if (event.detail === 0) brand?.focus({ preventScroll: true });
     });
     update();
   }
 </script>
+
+<style>
+  .site-back-top {
+    --back-top-size: 44px;
+    position: fixed;
+    z-index: 10;
+    right: max(var(--gutter), (100% - var(--shell-width)) / 2);
+    bottom: calc(var(--dock-offset) + (var(--dock-height) - var(--back-top-size)) / 2);
+    display: grid;
+    place-items: center;
+    width: var(--back-top-size);
+    height: var(--back-top-size);
+    padding: 0;
+    border-radius: 50%;
+    color: var(--text);
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: transform .22s ease, opacity .2s ease, visibility 0s linear .22s;
+  }
+  .site-back-top[data-visible] {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-back-top { transition: none; }
+  }
+  @media (hover: hover) {
+    .site-back-top:hover { background: rgb(255 255 255 / 78%); }
+  }
+  .site-back-top:active { background: rgb(255 255 255 / 86%); }
+  @media (max-width: 374px) {
+    .site-back-top { bottom: var(--dock-clearance); }
+  }
+  @media print {
+    .site-back-top { display: none; }
+  }
+</style>

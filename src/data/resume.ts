@@ -1,3 +1,5 @@
+import { toolkit } from './toolkit';
+
 export const resume = {
   name: '李可茵',
   role: 'UI/UX 产品设计师',
@@ -92,9 +94,11 @@ export const resume = {
     { title: '腾讯游戏体验研究项目', detail: '参与《王者荣耀》玩家行为分析（2024.04—2024.05）与游戏大厅体验研究（2024.06—2024.07）。结合玩家观察、反馈、行为数据和同类游戏分析，梳理大厅信息获取、功能入口、任务理解与操作路径，输出体验问题和优化机会。' },
   ],
   skills: [
-    { title: '产品设计', detail: 'B端产品设计、用户研究、信息架构、交互设计、UI设计' },
-    { title: '设计工具', detail: 'Figma、Design Systems、Prototyping' },
-    { title: 'AI 与开发', detail: 'ChatGPT、Codex、HTML/CSS、React、Tailwind' },
+    { title: '产品设计', items: ['B 端产品设计', 'C 端移动产品设计', '用户研究', '信息架构', '交互设计', 'UI 视觉设计'] },
+    ...toolkit.map(({ label, tools }) => ({
+      title: label,
+      items: tools.map(({ name }) => name),
+    })),
   ],
 };
 
