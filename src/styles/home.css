@@ -87,7 +87,7 @@
 .home-tool-description { margin-top: 6px; font-size: 14px; }
 @media (max-width: 640px) {
   .home-hero { padding-block: 40px 38px; }
-  .home-hero-visual { inset-block: 0 auto; height: 34px; width: 38px; }
+  .home-hero-visual { inset: 0 4px auto auto; width: 44px; height: 44px; }
   .home-hero-statement, .home-hero-intro { max-width: 100%; }
   .home-hero-statement { margin-top: 12px; }
   .home-hero-intro { margin-top: 10px; font-size: 16px; }

@@ -4,17 +4,19 @@ interface Props {
   label: string;
   text?: string;
   sourceId?: string;
+  trackEmail?: boolean;
   successMessage: string;
   errorMessage: string;
 }
 
-const { class: className, label, text, sourceId, successMessage, errorMessage, ...attrs } = Astro.props;
+const { class: className, label, text, sourceId, trackEmail, successMessage, errorMessage, ...attrs } = Astro.props;
 ---
 <button
   {...attrs}
   class:list={[className, 'copy-button']}
   type="button"
   data-copy-button
+  data-track-email={trackEmail}
   data-copy-text={text}
   data-copy-source={sourceId}
   data-copy-success={successMessage}

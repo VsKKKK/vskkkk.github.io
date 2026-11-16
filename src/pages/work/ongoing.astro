@@ -4,7 +4,7 @@ import { ongoingCovers, ongoingProject } from '../../data/ongoing-works';
 
 const title = '更多作品，持续更新中';
 ---
-<SiteLayout description={ongoingProject.description}>
+<SiteLayout description={ongoingProject.description} projectSlug={ongoingProject.slug}>
   <article class="site-shell detail-page">
     <a class="button-pill detail-back" href="/#works" data-ongoing-back>返回作品</a>
     <header class="detail-heading">

@@ -6,31 +6,38 @@ import CopyButton from './CopyButton.astro';
   <div class="contact-heading">
     <h2 id="contact-title">Contact / 保持联系</h2>
     <form method="dialog">
-      <button class="contact-close" type="submit" aria-label="关闭联系面板" autofocus>×</button>
+      <button class="contact-close" type="submit" aria-label="关闭联系面板" autofocus>
+        <span aria-hidden="true">×</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="m4 4 16 16M20 4 4 20" /></svg>
+      </button>
     </form>
   </div>
-  <p id="contact-description">如果你对我的作品、项目经历或合作机会感兴趣，欢迎通过以下方式联系我。</p>
-  <div class="contact-methods">
-    <section class="contact-email" aria-labelledby="contact-email-title">
-      <h3 id="contact-email-title">Email</h3>
-      <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a>
-      <p>适合商务沟通、正式合作与作品集交流。</p>
-      <div class="contact-copy">
-        <CopyButton class="button-pill" label="复制邮箱" text={site.email} successMessage="邮箱已复制" errorMessage="无法自动复制，请选中邮箱地址手动复制。" />
-      </div>
-    </section>
-    <section class="contact-wechat" aria-labelledby="contact-wechat-title">
-      <h3 id="contact-wechat-title">WeChat</h3>
-      <figure>
-        <img src={site.wechatQr} width="665" height="665" alt="微信联系二维码" loading="lazy" />
-        <figcaption>扫码添加微信好友。</figcaption>
-      </figure>
-      <p>如二维码失效，欢迎优先通过邮箱联系我。</p>
-    </section>
+  <div class="contact-content">
+    <p id="contact-description">如果你对我的作品、项目经历或合作机会感兴趣，欢迎通过以下方式联系我。</p>
+    <div class="contact-methods">
+      <section class="contact-email" aria-labelledby="contact-email-title">
+        <h3 id="contact-email-title">Email</h3>
+        <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a>
+        <p>适合商务沟通、正式合作与作品集交流。</p>
+        <div class="contact-copy">
+          <CopyButton class="button-pill" label="复制邮箱" text={site.email} trackEmail successMessage="邮箱已复制" errorMessage="无法自动复制，请选中邮箱地址手动复制。" />
+        </div>
+      </section>
+      <section class="contact-wechat" aria-labelledby="contact-wechat-title">
+        <h3 id="contact-wechat-title">WeChat</h3>
+        <figure>
+          <img src={site.wechatQr} width="665" height="665" alt="微信联系二维码" loading="lazy" />
+          <figcaption>扫码添加微信好友。</figcaption>
+        </figure>
+        <p>如二维码失效，欢迎优先通过邮箱联系我。</p>
+      </section>
+    </div>
   </div>
 </dialog>
 
 <script>
+  import { track } from '../scripts/analytics';
+
   const dialog = document.querySelector<HTMLDialogElement>('#contact-modal');
 
   if (dialog) {
@@ -40,6 +47,7 @@ import CopyButton from './CopyButton.astro';
       button.addEventListener('click', () => {
         opener = button;
         dialog.showModal();
+        track('contact_open');
       });
     });
     dialog.addEventListener('close', () => {
@@ -74,6 +82,7 @@ import CopyButton from './CopyButton.astro';
   .contact-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .contact-heading h2 { font-size: clamp(20px, 4vw, 28px); line-height: 1.25; font-weight: 650; }
   .contact-heading .contact-close { width: var(--control-size); height: var(--control-size); }
+  .contact-close svg { display: none; }
   #contact-description, section p, figcaption { color: var(--text-secondary); font-size: 14px; }
   #contact-description { margin-top: 6px; }
   .contact-methods {
@@ -97,6 +106,33 @@ import CopyButton from './CopyButton.astro';
   figcaption { margin-top: 6px; }
   .contact-wechat > p { margin-top: 6px; }
   @media (max-width: 580px) {
+    :global(html:has(#contact-modal[open])) { overflow: hidden; }
+    .contact-modal {
+      --contact-safe-top: max(16px, env(safe-area-inset-top));
+      --contact-safe-bottom: max(16px, env(safe-area-inset-bottom));
+      inset-block: var(--contact-safe-top) var(--contact-safe-bottom);
+      max-height: calc(100dvh - var(--contact-safe-top) - var(--contact-safe-bottom));
+      overflow: hidden;
+      padding: 16px 20px 0;
+    }
+    .contact-modal[open] { display: flex; flex-direction: column; }
+    .contact-heading { flex: none; }
+    .contact-heading .contact-close {
+      width: 44px;
+      height: 44px;
+      background: var(--surface-page);
+      color: var(--text);
+    }
+    .contact-heading .contact-close:focus-visible { outline: 1px solid currentColor; outline-offset: 1px; }
+    .contact-close span { display: none; }
+    .contact-close svg { display: block; width: 22px; height: 22px; }
+    .contact-content {
+      min-height: 0;
+      overflow: auto;
+      overscroll-behavior: contain;
+      margin-inline: -4px;
+      padding: 0 4px 20px;
+    }
     .contact-methods { grid-template-columns: minmax(0, 1fr); gap: 20px; margin-top: 16px; padding-top: 16px; }
     .contact-email { padding: 0; }
     .contact-wechat { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--line); }

@@ -55,6 +55,11 @@
 .eyt-bubble[data-side='above']::after { bottom: -4px; }
 .eyt-bubble[data-side='below']::after { top: -4px; }
 @keyframes eyt-bubble-in { from { opacity: 0; scale: .97; } }
+@media (max-width: 640px) {
+  .eyt { width: min(100%, 44px); }
+  .eyt-ball { width: 30px; filter: drop-shadow(0 2px 4px rgb(0 0 0 / 9%)); }
+  .eyt-bubble { width: max-content; }
+}
 @media (prefers-reduced-motion: reduce) {
   .eyt-bubble:popover-open { animation: none; transition: none; }
 }

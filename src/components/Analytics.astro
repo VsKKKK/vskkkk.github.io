@@ -1,0 +1,28 @@
+---
+interface Props { projectSlug?: string }
+const { projectSlug } = Astro.props;
+---
+<script is:inline defer src="https://cloud.umami.is/script.js"
+  data-website-id="800acf7b-d673-48a9-9e43-0aad305de14a"
+  data-domains="vskkkk.github.io" data-exclude-search="true" data-exclude-hash="true"
+  data-project-view={projectSlug}></script>
+<script>
+  import { track } from '../scripts/analytics';
+
+  const tracker = document.querySelector<HTMLScriptElement>('script[data-website-id]');
+  const slug = tracker?.dataset.projectView;
+  if (slug) {
+    if (window.umami) track('project_view', slug);
+    else tracker?.addEventListener('load', () => track('project_view', slug), { once: true });
+  }
+
+  document.addEventListener('click', (event) => {
+    if (event.defaultPrevented || !(event.target instanceof Element)) return;
+    const link = event.target.closest<HTMLAnchorElement>('a[data-track-project], a[data-portfolio-link], a[download][data-track-resume]');
+    if (!link) return;
+    const slug = link.dataset.trackProject;
+    if (slug) track('project_click', slug);
+    else if (link.hasAttribute('data-portfolio-link')) track('portfolio_click');
+    else track('resume_download');
+  });
+</script>

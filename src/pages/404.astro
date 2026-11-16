@@ -1,6 +1,7 @@
 ---
 import Preloader from '../components/Preloader.astro';
 import CopyButton from '../components/CopyButton.astro';
+import Analytics from '../components/Analytics.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
 
@@ -13,6 +14,7 @@ const endpoint = import.meta.env.PUBLIC_404_FEEDBACK_URL?.trim() ?? '';
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="robots" content="noindex" />
     <title>{site.title}</title>
+    <Analytics />
   </head>
   <body class="error-page">
     <Preloader />
@@ -49,7 +51,7 @@ const endpoint = import.meta.env.PUBLIC_404_FEEDBACK_URL?.trim() ?? '';
         <h2 id="error-contact-title">直接联系我</h2>
         <div class="contact-email">
           <a href={`mailto:${site.email}`}>{site.email}</a>
-          <CopyButton class="error-button copy-email" label="复制邮箱" text={site.email} successMessage="邮箱已复制" errorMessage="无法自动复制，请选中邮箱地址手动复制。" />
+          <CopyButton class="error-button copy-email" label="复制邮箱" text={site.email} trackEmail successMessage="邮箱已复制" errorMessage="无法自动复制，请选中邮箱地址手动复制。" />
         </div>
         <figure class="wechat-qr">
           <img src={site.wechatQr} width="665" height="665" alt="微信二维码" decoding="async" />
@@ -58,6 +60,7 @@ const endpoint = import.meta.env.PUBLIC_404_FEEDBACK_URL?.trim() ?? '';
       </section>
     </main>
     <script>
+      import { track } from '../scripts/analytics';
 
       const feedback = document.querySelector<HTMLElement>('.feedback')!;
       const report = document.querySelector<HTMLButtonElement>('[data-report]')!;
@@ -74,6 +77,7 @@ const endpoint = import.meta.env.PUBLIC_404_FEEDBACK_URL?.trim() ?? '';
 
       report.addEventListener('click', async () => {
         if (report.disabled || !result.hidden) return;
+        track('not_found_feedback_click');
         const endpoint = feedback.dataset.endpoint;
         if (!endpoint) {
           status.textContent = '在线反馈暂未接通，请通过下方联系方式联系我。';

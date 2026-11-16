@@ -4,11 +4,12 @@ import SiteDock from '../components/SiteDock.astro';
 import Footer from '../components/Footer.astro';
 import ContactModal from '../components/ContactModal.astro';
 import Preloader from '../components/Preloader.astro';
+import Analytics from '../components/Analytics.astro';
 import { site } from '../data/site';
 import '../styles/global.css';
 
-interface Props { description?: string }
-const { description } = Astro.props;
+interface Props { description?: string; projectSlug?: string }
+const { description, projectSlug } = Astro.props;
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -17,6 +18,7 @@ const { description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     {description && <meta name="description" content={description} />}
     <title>{site.title}</title>
+    <Analytics projectSlug={projectSlug} />
   </head>
   <body>
     <Preloader />

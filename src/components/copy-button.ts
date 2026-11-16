@@ -1,5 +1,7 @@
 // Motion adapted from the DesignBookmark Copy Button:
 // https://designbookmark.com/motion-src/copy-button/index.html
+import { track } from '../scripts/analytics';
+
 export function bindCopyButton(button: HTMLButtonElement) {
   const roll = button.querySelector<HTMLElement>('[data-copy-window]')!;
   const words = button.querySelector<HTMLElement>('[data-copy-words]')!;
@@ -104,6 +106,7 @@ export function bindCopyButton(button: HTMLButtonElement) {
       if (!text) throw new Error('Copy text is missing');
       await navigator.clipboard.writeText(text);
       success = true;
+      if (button.hasAttribute('data-track-email')) track('email_copy');
     } catch {
       // Keep the source text available for manual selection.
     }

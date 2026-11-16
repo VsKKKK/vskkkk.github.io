@@ -12,7 +12,7 @@ const { project, eager = false, summary, current = false, sizes = '(max-width: 6
 const variants = previews[project.cover as keyof typeof previews]?.filter(variant => !('galleryOnly' in variant && variant.galleryOnly));
 ---
 <article class="project-card" style={current ? 'box-shadow: inset 0 0 0 1px var(--accent)' : undefined}>
-  <a draggable="false" href={`/work/${project.slug}/`} aria-current={current ? 'page' : undefined}>
+  <a draggable="false" href={`/work/${project.slug}/`} aria-current={current ? 'page' : undefined} data-track-project={project.slug}>
     <slot name="media">
       <div class="project-card-media">
         <img src={variants?.[0].src ?? project.cover}

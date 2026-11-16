@@ -183,7 +183,7 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
         <p class="contact-intro">保持联系，一起探索更多设计可能。</p>
         <div class="contact-actions">
           <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a>
-          <CopyButton class="button-pill" label="复制邮箱" text={site.email} successMessage="邮箱已复制" errorMessage="无法自动复制，请选中邮箱地址手动复制。" />
+          <CopyButton class="button-pill" label="复制邮箱" text={site.email} trackEmail successMessage="邮箱已复制" errorMessage="无法自动复制，请选中邮箱地址手动复制。" />
           <button class="button-pill" type="button" data-wechat-trigger aria-haspopup="dialog" aria-controls="wechat-dialog">微信联系</button>
         </div>
       </div>
@@ -199,11 +199,16 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
 </SiteLayout>
 
 <script>
+  import { track } from '../scripts/analytics';
 
   const wechatTrigger = document.querySelector<HTMLButtonElement>('[data-wechat-trigger]');
   const wechatDialog = document.querySelector<HTMLDialogElement>('#wechat-dialog');
 
-  wechatTrigger?.addEventListener('click', () => wechatDialog?.showModal());
+  wechatTrigger?.addEventListener('click', () => {
+    if (!wechatDialog) return;
+    wechatDialog.showModal();
+    track('wechat_open');
+  });
   wechatDialog?.addEventListener('close', () => wechatTrigger?.focus({ preventScroll: true }));
   wechatDialog?.addEventListener('click', (event) => {
     if (event.target !== wechatDialog) return;
@@ -262,6 +267,12 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
     overflow: hidden;
     border-radius: var(--radius-media);
   }
+  @media (max-width: 640px) {
+    .profile-watcher { inset: 10px 10px auto auto; width: 44px; filter: none; }
+  }
+  @media (max-width: 459px) {
+    .profile-portrait { width: min(210px, calc(100% - 76px)); }
+  }
   .profile-portrait img {
     display: block;
     width: 100%;
@@ -288,6 +299,9 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
   @media (min-width: 960px), (min-width: 460px) and (max-width: 760px) {
     .profile-card {
     position: relative; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr); }
+  }
+  @media (min-width: 460px) and (max-width: 640px) {
+    .profile-card { padding-top: 56px; }
   }
   .profile-focus h3 { margin-bottom: 10px; font-size: 14px; font-weight: 600; }
   .chips, .timeline { list-style: none; margin: 0; padding: 0; }
