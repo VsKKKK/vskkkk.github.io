@@ -1,0 +1,24 @@
+---
+import { site } from '../data/site';
+const contacts = [
+  { text: site.phone, href: site.phoneHref, path: 'M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z' },
+  { text: site.email, href: `mailto:${site.email}`, path: 'M4 4h16v16H4zM4 5l8 7 8-7' },
+  { text: site.portfolio, href: site.portfolio, path: 'M10 13a5 5 0 0 0 7 .1l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7-.1l-3 3a5 5 0 0 0 7 7l2-2' },
+];
+---
+<ul class="resume-contacts" aria-label="简历联系方式" role="list">
+  {contacts.map(({text, href, path}) => (
+    <li><a href={href}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={path} /></svg><span>{text}</span></a></li>
+  ))}
+</ul>
+<style>
+  .resume-contacts { display: flex; flex-wrap: wrap; gap: 6px 16px; list-style: none; padding: 0; margin: 12px 0 0; color: var(--text-secondary); font-size: 13px; }
+  li { min-width: 0; }
+  a { display: inline-flex; align-items: baseline; gap: 6px; text-underline-offset: .2em; }
+  svg { width: 14px; height: 14px; flex: none; align-self: center; }
+  span { overflow-wrap: anywhere; }
+  @media print {
+    .resume-contacts { margin-top: 1mm; gap: 1mm 3mm; font-size: 9pt; }
+    svg { width: 10pt; height: 10pt; }
+  }
+</style>

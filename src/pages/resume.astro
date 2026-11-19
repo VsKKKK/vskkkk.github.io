@@ -4,6 +4,7 @@ import portrait from '../assets/keyin-portrait.jpg';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { resume } from '../data/resume';
 import { site } from '../data/site';
+import ResumeContacts from '../components/ResumeContacts.astro';
 ---
 
 <SiteLayout>
@@ -21,9 +22,9 @@ import { site } from '../data/site';
           <p class="resume-role">{resume.role}</p>
           <p class="resume-focus">{resume.focus}</p>
           <div class="resume-contact">
-            <p>{resume.location} <span aria-hidden="true">·</span> {resume.experience}</p>
-            <a class="text-link" href={`mailto:${site.email}`}>{site.email}</a>
+            <p>{site.location} <span aria-hidden="true">·</span> {resume.experience}</p>
           </div>
+          <ResumeContacts />
         </div>
         <Image src={portrait} alt="李可茵的个人照片" class="resume-portrait"
           width={420} format="webp" quality={90} loading="eager" />
@@ -227,7 +228,7 @@ import { site } from '../data/site';
       padding: 11mm 13mm 10mm;
       break-inside: avoid;
     }
-    .resume-actions + .resume-print-page { gap: 2.5mm; }
+    .resume-actions + .resume-print-page { gap: 1mm; }
     .resume-print-page + .resume-print-page { break-before: page; }
     .resume-profile { padding: 0; gap: 6mm; break-inside: avoid; }
     .resume-portrait { width: 34mm; border-radius: 2mm; }

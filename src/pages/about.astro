@@ -4,6 +4,7 @@ import CopyButton from '../components/CopyButton.astro';
 import { Image } from 'astro:assets';
 import portrait from '../assets/keyin-portrait.jpg';
 import { Watcher } from '../components/eye-tracker/Watcher';
+import ResumeContacts from '../components/ResumeContacts.astro';
 import { site } from '../data/site';
 import { toolkit } from '../data/toolkit';
 
@@ -81,6 +82,7 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
         <div class="profile-info">
           <h2>{site.name}</h2>
           <p class="profile-role">UI/UX 产品设计师</p>
+          <ResumeContacts />
           <p class="profile-direction">B端产品 · C端体验 · 多端设计</p>
           <ul class="profile-details" role="list">
             <li>
