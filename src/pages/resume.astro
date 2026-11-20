@@ -105,9 +105,11 @@ import ResumeContacts from '../components/ResumeContacts.astro';
         </dl>
       </section>
       <section aria-labelledby="education-title">
-        <h2 id="education-title">教育经历 Education</h2>
-        <p>广州美术学院｜视觉传达专业</p>
-        <p>广东轻工职业技术大学｜交互设计</p>
+        <h2 id="education-title"><span aria-hidden="true">07</span> 教育经历</h2>
+        <dl class="resume-facts resume-education">
+          <div><dt>广州美术学院</dt><dd>视觉传达专业（在读）</dd></div>
+          <div><dt>广东轻工职业技术大学</dt><dd>交互设计</dd></div>
+        </dl>
       </section>
       <p class="resume-folio">02 / 02</p>
     </div>
@@ -174,6 +176,7 @@ import ResumeContacts from '../components/ResumeContacts.astro';
   .resume-facts > div { display: grid; grid-template-columns: minmax(0, 10em) minmax(0, 1fr); gap: 3px 12px; }
   .resume-facts dt { font-weight: 600; }
   .resume-facts dd { margin: 0; }
+  .resume-education > div { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
   .resume-skill { white-space: nowrap; }
   .resume-timeline, .resume-research { list-style: none; margin: 0; padding: 0; }
   .resume-timeline { margin-left: 4px; padding-left: 18px; border-left: 1px solid var(--accent); }
@@ -262,6 +265,7 @@ import ResumeContacts from '../components/ResumeContacts.astro';
     .resume-timeline > li + li { margin-top: 3mm; }
     .resume-facts { gap: 1mm; }
     .resume-facts > div { grid-template-columns: 32mm minmax(0, 1fr); }
+    .resume-education > div { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
     .resume-duties { margin-top: 1mm; }
     .resume-duties li + li { margin-top: .65mm; }
     .resume-project-context, .resume-research p { margin-top: .7mm; }
